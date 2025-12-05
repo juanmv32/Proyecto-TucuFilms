@@ -1,0 +1,34 @@
+@media (max-width: 600px) {
+  .carousel-item .img-thumbnail {
+    width: 280px !important;
+    height: 400px !important;
+  }
+
+  .carousel-item > div {
+    flex-wrap: nowrap !important;
+    justify-content: center !important;
+  }
+}
+
+/* --- EVITA QUE SE APILEN COMO COLUMNA --- */
+.carousel-item > div {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+.carousel-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px; 
+  width: 100%;
+  padding: 0 20px; 
+}
+
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: rgba(0,0,0,0.6);
+  border-radius: 50%;
+  padding: 10px;
+}
