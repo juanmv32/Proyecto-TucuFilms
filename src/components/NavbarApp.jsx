@@ -1,7 +1,10 @@
-import React from "react";
+import { useState, createContext, useContext } from 'react';
+import { UserContext } from "../contexto/ContextoBD";
 
 const NavBarApp = () => {
-  return <div>NavbarApp</div>;
+    
+  const contexto = useContext(UserContext)
+  return <div>{contexto}</div>;
 };
 
 export default NavBarApp;
