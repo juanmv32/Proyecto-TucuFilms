@@ -1,17 +1,6 @@
-@media (max-width: 600px) {
-  .carousel-item .img-thumbnail {
-    width: 280px !important;
-    height: 400px !important;
-  }
-
-  .carousel-item > div {
-    flex-wrap: nowrap !important;
-    justify-content: center !important;
-  }
-}
 
 /* --- EVITA QUE SE APILEN COMO COLUMNA --- */
-.carousel-item > div {
+.carousel-item div {
   display: flex;
   gap: 10px;
   justify-content: center;
@@ -31,4 +20,15 @@
   background-color: rgba(0,0,0,0.6);
   border-radius: 50%;
   padding: 10px;
+}
+@media (max-width: 600px) {
+  .carousel-item .imgage-slider {
+    width: 280px !important;
+    height: 400px !important;
+  }
+
+  .carousel-item  div {
+    flex-wrap: nowrap !important;
+    justify-content: center !important;
+  }
 }
