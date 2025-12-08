@@ -1,7 +1,10 @@
 import React from "react";
+import { useContext } from "react";
+import { UserContext } from "../contexto/ContextoBD";
 
 const FooterApp = () => {
-  return <div>FooterApp</div>;
+  const contexto = useContext(UserContext)
+  return <div>{contexto}</div>;
 };
 
 export default FooterApp;
