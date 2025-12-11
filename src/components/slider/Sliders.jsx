@@ -1,36 +1,33 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './Carousel.css';
-// Importar useContext para obtener datos desde el contexto
-
+import peliculasData from '../../assets/data/peliculas.json';
 
 function Sliders() {
-// Obtener categorias desde el context en lugar de la constante local
-  const { categorias, loading, error } = useContext(""); // Reemplaza "" con el contexto adecuado
+  const categorias = peliculasData.categorias;
+  const [anchoVentana, setAnchoVentana] = useState(window.innerWidth);
 
-  if (loading) return <div>Cargando sliders...</div>;
-  if (error) return <div>Error cargando datos.</div>;
-  if (!categorias || categorias.length === 0) return <div>No hay categorías para mostrar.</div>;
+  useEffect(() => {
+    const redimensionado = () => {
+      setAnchoVentana(window.innerWidth);
+    };
 
-// Función para decidir cuántas imágenes mostrar según el tamaño de pantalla
-const obtenerCantidadImagenes = () => {
-  const ancho = window.innerWidth; 
+    window.addEventListener('resize', redimensionado);
+    return () => window.removeEventListener('resize', redimensionado);
+  }, []);
 
-  if (ancho < 480) return 1;      // Celular chico
-  if (ancho < 768) return 2;      // Celular grande / tablet chica
-  if (ancho < 1024) return 3;     // Tablet grande
+  const obtenerCantidadImagenes = () => {
+    if (anchoVentana < 480) return 1;
+    if (anchoVentana < 768) return 2;
+    if (anchoVentana < 1024) return 3;
+    if (anchoVentana < 1200) return 4;
+    return 7;
+  };
 
-  return 7; // Monitores grandes
-};
   const renderCategoria = (categoria) => {
-
-    // Cantidad de imágenes según el dispositivo
     const imagenesPorDiapositiva = obtenerCantidadImagenes();
-
-    const totalDiapositivas = Math.ceil(
-      categoria.imagenes.length / imagenesPorDiapositiva
-    );
+    const totalDiapositivas = Math.ceil(categoria.imagenes.length / imagenesPorDiapositiva);
 
     return (
       <div key={categoria.id} className="mb-5 text-center">
@@ -38,8 +35,7 @@ const obtenerCantidadImagenes = () => {
 
         <div id={categoria.id} className="carousel slide" data-bs-touch="true">
           <div className="carousel-inner">
-
-            {Array.from({ length: totalDiapositivas }).map((x , indice) => {
+            {Array.from({ length: totalDiapositivas }).map((_, indice) => {
               const inicio = indice * imagenesPorDiapositiva;
               const fin = inicio + imagenesPorDiapositiva;
               const grupoImagenes = categoria.imagenes.slice(inicio, fin);
@@ -49,32 +45,31 @@ const obtenerCantidadImagenes = () => {
                   key={indice}
                   className={`carousel-item ${indice === 0 ? "active" : ""}`}
                 >
-                              {/* Estilos y llamados a para el carousel*/}
                   <div
                     className="d-flex justify-content-center gap-3 p-2"
-                    style={{
-                      minHeight: "180px",
-                    }}
-                  >            
-                    {grupoImagenes.map((img, i) => (
-                      <img
-                        key={i}
-                        src={img}
-                        className="imgage-slider"
-                        style={{
-                          width: window.innerWidth < 600 ? "60vw" : "250px",
-                          height: window.innerWidth < 600 ? "250px" : "auto",
-                          objectFit: "cover",
-                          flex: "0 0 auto",
-                        }}
-                        alt={categoria.titulo}
-                      />
+                    style={{ minHeight: "180px" }}
+                  >
+                    {grupoImagenes.map((pelicula, i) => (
+                      <div key={i} style={{ textAlign: 'center' }}>
+                        <img
+                          src={pelicula.url}
+                          className="imgage-slider"
+                          style={{
+                            width: anchoVentana < 600 ? "60vw" : "250px",
+                            height: anchoVentana < 600 ? "250px" : "auto",
+                            objectFit: "cover",
+                            flex: "0 0 auto",
+                          }}
+                          alt={pelicula.titulo}
+                        />
+                      </div>
                     ))}
                   </div>
                 </div>
               );
             })}
           </div>
+
           <button
             className="carousel-control-prev d-flex justify-content-start"
             type="button"
@@ -92,13 +87,12 @@ const obtenerCantidadImagenes = () => {
           >
             <span className="carousel-control-next-icon"></span>
           </button>
-
         </div>
       </div>
     );
   };
 
   return <div>{categorias.map(renderCategoria)}</div>;
-};
+}
 
 export default Sliders;

@@ -1,12 +1,39 @@
-import { createContext, useState } from "react";
-// aqui inicializamos la variable UserContext que sera importada en cada componente que necesite acceder al contexto
-export const UserContext =  createContext(null);
+import React, { createContext, useEffect, useState } from 'react';
+import data from '../assets/data/movie.json';
 
- export const UseProvider = ({children})=>{
-     
-     const [user,setUser] = useState("Este es el CONTEXTO")
+// Creamos el contexto con valores iniciales
+export const MovieContext = createContext({
+  categorias: [],
+  loading: true,
+  error: null,
+});
 
-     return(
-        <UserContext.Provider value={user}>{children}</UserContext.Provider>
-     )
-}
+export const MovieProvider = ({ children }) => {
+  const [categorias, setCategorias] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    try {
+      const cats = data.categorias ?? [];
+
+      setCategorias(cats);
+      setLoading(false);
+    } catch (err) {
+      console.error('Error cargando JSON:', err);
+      setError(err);
+      setLoading(false);
+      setCategorias([]);
+    }
+  }, []);
+
+  return (
+    <MovieContext.Provider value={{ categorias, loading, error }}>
+      {children}
+    </MovieContext.Provider>
+  );
+};
+
+// Alias opcional
+export const UserContext = MovieContext;
+export const UseProvider = MovieProvider;

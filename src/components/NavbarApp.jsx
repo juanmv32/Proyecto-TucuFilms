@@ -1,10 +1,12 @@
-import { useState, createContext, useContext } from 'react';
-import { UserContext } from "../contexto/ContextoBD";
+import { useState, useContext } from 'react';
+import { MovieContext } from "../contexto/ContextoBD";
 
 const NavBarApp = () => {
-    
-  const contexto = useContext(UserContext)
-  return <div>{contexto}</div>;
+  const { categorias, loading, error } = useContext(MovieContext);
+
+  if (loading) return <div>Cargando...</div>;
+  if (error) return <div>Error cargando categorías.</div>;
+
 };
 
 export default NavBarApp;
