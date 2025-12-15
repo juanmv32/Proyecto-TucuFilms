@@ -4,9 +4,9 @@ export const UserContext =  createContext(null);
 
  export const UseProvider = ({children})=>{
      
-     const [user,setUser] = useState("Este es el CONTEXTO")
+     const [user,setUser] = useState(JSON.parse(localStorage.getItem("peliculas")))
 
      return(
-        <UserContext.Provider value={user}>{children}</UserContext.Provider>
+        <UserContext.Provider value={{user, setUser}}>{children}</UserContext.Provider>
      )
 }
