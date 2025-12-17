@@ -5,8 +5,15 @@ export const UserContext =  createContext(null);
  export const UseProvider = ({children})=>{
      
      const [user,setUser] = useState(JSON.parse(localStorage.getItem("peliculas")))
+  
+
+      const actualizarPelicula = (peliculas)=>{
+           setUser(peliculas)
+           console.log(user)
+      }
+
 
      return(
-        <UserContext.Provider value={{user, setUser}}>{children}</UserContext.Provider>
+        <UserContext.Provider value={{user, actualizarPelicula}}>{children}</UserContext.Provider>
      )
 }

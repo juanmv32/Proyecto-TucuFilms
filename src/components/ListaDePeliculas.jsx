@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { use, useContext, useEffect, useState } from 'react'
 import { UserContext } from '../contexto/ContextoBD';
 export default function ListaDePeliculas() {
 
@@ -19,7 +19,7 @@ const lapizNota = <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
 </svg>;
 
 // const contexto = useContext(UserContext)
-const { user, setUser } = useContext(UserContext);
+const { user, actualizarPelicula } = useContext(UserContext);
 
 //array de objetos que despues sera borrado
 // const peliculas = [
@@ -34,7 +34,16 @@ const { user, setUser } = useContext(UserContext);
 //   { id: 9, pelicula: "Mirage", categoria: "Comedia", descripcion: "Risa", publicado: true, favorito: true },
 //   { id: 10, pelicula: "Blazer", categoria: "Terror", descripcion: "Oscuro", publicado: false, favorito: false }
 // ];
-
+const cambiarPublicado =(id)=>{
+     const listaPelis = [...user]
+     const index = listaPelis.findIndex((peli)=>{
+        return peli.id === id
+     })
+     listaPelis[index].publicado = !listaPelis[index].publicado 
+     actualizarPelicula(listaPelis)
+    // console.log(listaPelis[index])
+     
+}
 
 
 
@@ -48,15 +57,21 @@ const [lista, setLista] = useState(user);
 function  FilaDeTable({items}){
      
  const {id,pelicula,categoria,descripcion,publicado,favorito} = items
- const [favoritos,setFavoritos] = useState(favorito)
- const [publicados,setPublicados] = useState(publicado)
+//  const [favoritos,setFavoritos] = useState(favorito)
+//  const [publicados,setPublicados] = useState(publicado)
 
 
 const meGusta = ()=>{
-  setPublicados(!favoritos)
+  setPublicados(!publicado)
 }
 
-
+const actualizarPublicado =()=>{
+  const nuevosDatos = {
+     ...items
+  }
+  nuevosDatos.publicado = !nuevosDatos.publicado
+  console.log(nuevosDatos)
+}
 
 
   return(
@@ -65,8 +80,8 @@ const meGusta = ()=>{
             <td>{pelicula}</td>
             <td>{categoria}</td>
             <td>{descripcion}</td>
-            <td><input type="checkbox" id="miCheckbox" value="valor1" checked={publicados}></input></td>
-            <td className='d-flex justify-content-around'><span>{basurero}</span><span>{lapizNota}</span><div onClick={meGusta}>{favoritos?estrellitaLlena:estrellitaVacia}</div></td>
+            <td><input type="checkbox" id="miCheckbox" value="valor1" checked={publicado} onClick={()=>cambiarPublicado(id)}></input></td>
+            <td className='d-flex justify-content-around'><span>{basurero}</span><span>{lapizNota}</span><div onClick={meGusta}>{favorito?estrellitaLlena:estrellitaVacia}</div></td>
         </tr>
   )
 }
