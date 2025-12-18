@@ -22,18 +22,7 @@ const lapizNota = <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
 const { user, actualizarPelicula } = useContext(UserContext);
 
 //array de objetos que despues sera borrado
-// const peliculas = [
-//   { id: 1, pelicula: "Solaris", categoria: "Drama", descripcion: "Viaje", publicado: true,  favorito: false },
-//   { id: 2, pelicula: "Nebula", categoria: "Accion", descripcion: "Lucha", publicado: false, favorito: true  },
-//   { id: 3, pelicula: "Eclipse", categoria: "Terror", descripcion: "Miedo", publicado: true,  favorito: true  },
-//   { id: 4, pelicula: "Orion",  categoria: "SciFi",  descripcion: "Futuro", publicado: false, favorito: false },
-//   { id: 5, pelicula: "Raptor", categoria: "Aventura", descripcion: "Selva", publicado: true,  favorito: false },
-//   { id: 6, pelicula: "Titan",  categoria: "Drama", descripcion: "Destino", publicado: false, favorito: true  },
-//   { id: 7, pelicula: "Phoenix", categoria: "Accion", descripcion: "Venganza", publicado: true, favorito: false },
-//   { id: 8, pelicula: "Quasar", categoria: "SciFi", descripcion: "Energia", publicado: false, favorito: true },
-//   { id: 9, pelicula: "Mirage", categoria: "Comedia", descripcion: "Risa", publicado: true, favorito: true },
-//   { id: 10, pelicula: "Blazer", categoria: "Terror", descripcion: "Oscuro", publicado: false, favorito: false }
-// ];
+
 const cambiarPublicado =(id)=>{
      const listaPelis = [...user]
      const index = listaPelis.findIndex((peli)=>{
@@ -41,8 +30,24 @@ const cambiarPublicado =(id)=>{
      })
      listaPelis[index].publicado = !listaPelis[index].publicado 
      actualizarPelicula(listaPelis)
-    // console.log(listaPelis[index])
-     
+}
+
+const cambiarFavorito =(id)=>{
+     const listaPelis = [...user]
+     const index = listaPelis.findIndex((peli)=>{
+        return peli.id === id
+     })
+     listaPelis[index].favorito = !listaPelis[index].favorito 
+     actualizarPelicula(listaPelis)
+}
+
+const eliminarPelicula =(id)=>{
+     const listaPelis = [...user]
+     const nuevaLista = listaPelis.filter((peli)=>{
+        return peli.id !== id
+     })
+     console.log(nuevaLista)
+     actualizarPelicula(nuevaLista)
 }
 
 
@@ -50,29 +55,13 @@ const cambiarPublicado =(id)=>{
 
 // aqui voy a definir las funcionalidades del componente
 //estado para el array de objetos 
-const [lista, setLista] = useState(user);
+
 
 
 // la funcion de favoritos
 function  FilaDeTable({items}){
      
  const {id,pelicula,categoria,descripcion,publicado,favorito} = items
-//  const [favoritos,setFavoritos] = useState(favorito)
-//  const [publicados,setPublicados] = useState(publicado)
-
-
-const meGusta = ()=>{
-  setPublicados(!publicado)
-}
-
-const actualizarPublicado =()=>{
-  const nuevosDatos = {
-     ...items
-  }
-  nuevosDatos.publicado = !nuevosDatos.publicado
-  console.log(nuevosDatos)
-}
-
 
   return(
     <tr key={id}>
@@ -81,7 +70,7 @@ const actualizarPublicado =()=>{
             <td>{categoria}</td>
             <td>{descripcion}</td>
             <td><input type="checkbox" id="miCheckbox" value="valor1" checked={publicado} onClick={()=>cambiarPublicado(id)}></input></td>
-            <td className='d-flex justify-content-around'><span>{basurero}</span><span>{lapizNota}</span><div onClick={meGusta}>{favorito?estrellitaLlena:estrellitaVacia}</div></td>
+            <td className='d-flex justify-content-around'><span onClick={()=>{eliminarPelicula(id)}}>{basurero}</span><span>{lapizNota}</span><div onClick={()=>{cambiarFavorito(id)}}>{favorito?estrellitaLlena:estrellitaVacia}</div></td>
         </tr>
   )
 }
@@ -100,7 +89,7 @@ const actualizarPublicado =()=>{
       </tr>
      </thead>
      <tbody>
-      {lista.map((item)=>(
+      {user.map((item)=>(
         <FilaDeTable items = {item}/>
       ))}  
     </tbody>
