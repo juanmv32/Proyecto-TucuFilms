@@ -1,404 +1,358 @@
 {
-    "page": 1,
-    "results": [
+  "categorias": [
+    {
+      "id": "cat-comedia",
+      "titulo": "Comedia 😂",
+      "peliculas": [
         {
-            "adult": false,
-            "backdrop_path": "/5h2EsPKNDdB3MAtOk9MB9Ycg9Rz.jpg",
-            "genre_ids": [
-                16,
-                10751,
-                35,
-                12
-            ],
-            "id": 1084242,
-            "original_language": "en",
-            "original_title": "Zootopia 2",
-            "overview": "Después de resolver el caso más importante en la historia de Zootrópolis, los policías novatos Judy Hopps y Nick Wilde descubren que su asociación no es tan sólida como pensaban cuando el Jefe Bogo les ordena unirse al programa de consejería \"Compañeros en Crisis\". Pero no pasa mucho tiempo para que su asociación se ponga a prueba al máximo, cuando la llegada de Gary, la serpiente, pone la ciudad patas arriba.",
-            "popularity": 512.6445,
-            "poster_path": "/oDaWFIrBuOaFrTmBpAlMfmsa81N.jpg",
-            "release_date": "2025-11-26",
-            "title": "Zootrópolis 2",
-            "video": false,
-            "vote_average": 7.72,
-            "vote_count": 345
+          "id": "com-1",
+          "titulo": "Superbad",
+          "anio": 2007,
+          "descripcion": "Dos amigos adolescentes intentan disfrutar su última gran noche antes de graduarse.",
+          "publicado": true,
+          "poster": "https://image.tmdb.org/t/p/w500/ek8e8txUyUwd2BNqj6lFEerJfbq.jpg"
         },
         {
-            "adult": false,
-            "backdrop_path": "/6bzabqH399ioM3nZScwZtzGaHIy.jpg",
-            "genre_ids": [
-                878,
-                12,
-                28
-            ],
-            "id": 533533,
-            "original_language": "en",
-            "original_title": "TRON: Ares",
-            "overview": "La historia de Ares, un programa muy sofisticado que se envía desde el mundo digital al mundo real en una misión peligrosa y que va a representar el primer encuentro de la humanidad con seres creados por la IA.",
-            "popularity": 458.1744,
-            "poster_path": "/qShQABLVRMZKnv5mWOPXWniBeB3.jpg",
-            "release_date": "2025-10-08",
-            "title": "TRON: Ares",
-            "video": false,
-            "vote_average": 6.491,
-            "vote_count": 541
+          "id": "com-2",
+          "titulo": "The Mask",
+          "anio": 1994,
+          "descripcion": "Un hombre común descubre una máscara con poderes extraordinarios.",
+          "publicado": true,
+          "poster": "https://image.tmdb.org/t/p/w500/xbbXp9px4o8Oe7IbGd0yIbla8mZ.jpg"
         },
         {
-            "adult": false,
-            "backdrop_path": "/lZYMXx74pWmbj5Q5jp1QaMvmuuR.jpg",
-            "genre_ids": [
-                28,
-                14,
-                53
-            ],
-            "id": 1180831,
-            "original_language": "no",
-            "original_title": "Troll 2",
-            "overview": "Cuando un nuevo y peligroso trol amenaza con devastar su país, Nora, Andreas y el comandante Kris se embarcan en la misión más peligrosa de sus vidas.",
-            "popularity": 450.8549,
-            "poster_path": "/AisyKEN1zLKRcAPpeJ5G5DaBhyw.jpg",
-            "release_date": "2025-11-30",
-            "title": "Trol 2",
-            "video": false,
-            "vote_average": 6.954,
-            "vote_count": 132
+          "id": "com-3",
+          "titulo": "Yes Man",
+          "anio": 2008,
+          "descripcion": "Un hombre decide decir sí a todas las oportunidades.",
+          "publicado": true,
+          "poster": "https://cdn11.bigcommerce.com/s-yzgoj/images/stencil/1280x1280/products/2865150/5903933/MOVII0606__31974.1679559987.jpg?c=2"
         },
         {
-            "adult": false,
-            "backdrop_path": "/w57nxiBIODAYHLRs1xmrCY9zEFe.jpg",
-            "genre_ids": [
-                28,
-                18,
-                14
-            ],
-            "id": 1083637,
-            "original_language": "kn",
-            "original_title": "ಕಾಂತಾರ: ಅಧ್ಯಾಯ - ೧",
-            "overview": "Durante el reinado de los Kadamba, el rey Vijayendra, gobernante de la ficticia tierra feudataria de Bangra, encuentra su destino final mientras se aventura en el místico bosque de Kantara. Testigo de ello, su hijo Rajashekara sella las fronteras de su reino. Más tarde, el príncipe Kulashekara las reabre mediante una brutal masacre. El protagonista, Berme, en busca de prosperidad, cruza la brecha y enciende un conflicto de fe, poder y destino entre el Reino y la Naturaleza.",
-            "popularity": 318.3417,
-            "poster_path": "/ehQPboTPaIMkMUOoNOh8e7pZ5Rp.jpg",
-            "release_date": "2025-10-01",
-            "title": "Kantara 2",
-            "video": false,
-            "vote_average": 7.189,
-            "vote_count": 37
+          "id": "com-4",
+          "titulo": "Que paso ayer",
+          "anio": 2009,
+          "descripcion": "Una despedida de soltero termina de forma caótica en Las Vegas.",
+          "publicado": true,
+          "poster": "https://m.media-amazon.com/images/M/MV5BOWY0YzE1OTYtOTZkZC00YTVhLTkwZjQtYTQwNmExNmUxYTU4XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
         },
         {
-            "adult": false,
-            "backdrop_path": "/otSXrUWOTX7tTigLBMFKOV8n47r.jpg",
-            "genre_ids": [
-                27,
-                14,
-                10749
-            ],
-            "id": 1246049,
-            "original_language": "fr",
-            "original_title": "Dracula",
-            "overview": "Tras la muerte de su esposa, un príncipe del siglo XV renuncia a Dios y se convierte en vampiro. Siglos más tarde, en el Londres del siglo XIX, ve a una mujer parecida a su difunta esposa y la persigue, sellando así su propio destino.",
-            "popularity": 248.9951,
-            "poster_path": "/ff7fyDdtXM2wu9jsm9gOMYtpvOl.jpg",
-            "release_date": "2025-07-30",
-            "title": "Drácula",
-            "video": false,
-            "vote_average": 7.1,
-            "vote_count": 518
+          "id": "com-5",
+          "titulo": "Mentiroso Mentiroso",
+          "anio": 1997,
+          "descripcion": "Un abogado no puede mentir durante 24 horas.",
+          "publicado": true,
+          "poster": "https://image.tmdb.org/t/p/original/d4HHI6uc8CNvQaLd8cVdk1tXTwE.jpg"
         },
         {
-            "adult": false,
-            "backdrop_path": "/8lqfrOBQ2EcY7znD3LxTYcvlh25.jpg",
-            "genre_ids": [
-                28,
-                80
-            ],
-            "id": 949709,
-            "original_language": "zh",
-            "original_title": "危机航线",
-            "overview": "Gao Haojun, un experto en seguridad internacional, es secuestrado por hombres armados en el primer vuelo del avión A380, y su hija ciega es una de los rehenes encubiertos, un hecho que él desconoce.",
-            "popularity": 243.9219,
-            "poster_path": "/b8xNJ39aOtEk3I7MFt8XJuN2bGS.jpg",
-            "release_date": "2024-09-29",
-            "title": "El Secuestro",
-            "video": false,
-            "vote_average": 6.04,
-            "vote_count": 25
+          "id": "com-6",
+          "titulo": "Click",
+          "anio": 2006,
+          "descripcion": "Un control remoto permite manipular la vida.",
+          "publicado": true,
+          "poster": "https://m.media-amazon.com/images/I/51JM5CyGAVL._AC_UF894,1000_QL80_.jpg"
         },
         {
-            "adult": false,
-            "backdrop_path": "/pAyImoslSnpMgjRwhaS5ZEdl8UI.jpg",
-            "genre_ids": [
-                28,
-                53,
-                80
-            ],
-            "id": 1448560,
-            "original_language": "en",
-            "original_title": "Wildcat",
-            "overview": "Un antiguo escuadrón de operaciones especiales se reúne para una última misión: un robo de alto riesgo para rescatar a la hija pequeña de su comandante.",
-            "popularity": 240.0653,
-            "poster_path": "/h893ImjM6Fsv5DFhKJdlZFZIJno.jpg",
-            "release_date": "2025-11-19",
-            "title": "Wildcat",
-            "video": false,
-            "vote_average": 6.2,
-            "vote_count": 27
+          "id": "com-7",
+          "titulo": "Scary Movie",
+          "anio": 2000,
+          "descripcion": "Parodia de películas de terror.",
+          "publicado": true,
+          "poster": "https://image.tmdb.org/t/p/w500/lRQiJXETkCnVVurHmglNvMXrZOx.jpg"
         },
         {
-            "adult": false,
-            "backdrop_path": "/4BtL2vvEufDXDP4u6xQjjQ1Y2aT.jpg",
-            "genre_ids": [
-                28,
-                80,
-                53
-            ],
-            "id": 1419406,
-            "original_language": "zh",
-            "original_title": "捕风追影",
-            "overview": "Unos astutos y traicioneros ladrones desafian a la Policía Judicial de Macao. La Policía, que se encontraba en una dura batalla, invita de nuevo al experto en rastreo Huang De Zhong, retirado desde hace muchos años, a unir fuerzas con la joven élite del Departamento de Investigación Criminal de la Policía Judicial. Bajo la colisión de las técnicas tradicionales de rastreo y la alta tecnología, la policía y los criminales luchan con ingenio y valentía, y se lanzan a un duelo entre el bien y el mal parecido al juego del gato y el ratón.",
-            "popularity": 228.8981,
-            "poster_path": "/o25Tk1FYQi2BLk0OEAvx2h69QvB.jpg",
-            "release_date": "2025-08-16",
-            "title": "The Shadow's Edge",
-            "video": false,
-            "vote_average": 6.438,
-            "vote_count": 136
+          "id": "com-8",
+          "titulo": "Ace Ventura",
+          "anio": 1994,
+          "descripcion": "Un detective muy particular busca mascotas perdidas.",
+          "publicado": true,
+          "poster": "https://image.tmdb.org/t/p/w500/pqiRuETmuSybfnVZ7qyeoXhQyN1.jpg"
         },
         {
-            "adult": false,
-            "backdrop_path": "/lf8IZ86ajGpgbuyHCZrXUeAMmvy.jpg",
-            "genre_ids": [
-                28,
-                12,
-                878
-            ],
-            "id": 1033462,
-            "original_language": "zh",
-            "original_title": "749局",
-            "overview": "En un futuro próximo, la Tierra enfrenta un desastre catastrófico causado por una criatura desconocida. Ma Shan, un joven marginado se une a la misteriosa Oficina 749 para enfrentar la crisis.",
-            "popularity": 201.7229,
-            "poster_path": "/uXQm8PKup6FxXkrd9kPyD2asCZs.jpg",
-            "release_date": "2024-10-01",
-            "title": "Bureau 749",
-            "video": false,
-            "vote_average": 6.0,
-            "vote_count": 50
+          "id": "com-9",
+          "titulo": "Norbit",
+          "anio": 2007,
+          "descripcion": "Un hombre intenta escapar de un matrimonio imposible.",
+          "publicado": true,
+          "poster": "https://m.media-amazon.com/images/M/MV5BMTI4NDE4MjgyNV5BMl5BanBnXkFtZTcwMTQwODc0MQ@@._V1_FMjpg_UX1000_.jpg"
         },
         {
-            "adult": false,
-            "backdrop_path": "/ebyxeBh56QNXxSJgTnmz7fXAlwk.jpg",
-            "genre_ids": [
-                28,
-                878,
-                12
-            ],
-            "id": 1242898,
-            "original_language": "en",
-            "original_title": "Predator: Badlands",
-            "overview": "Un joven Predator rechazado por su clan encuentra un aliado inesperado en Thia y emprende un peligroso viaje en busca del adversario definitivo.",
-            "popularity": 190.6551,
-            "poster_path": "/iANU8C9n6lH7Wx0MbOdM4aATfrW.jpg",
-            "release_date": "2025-11-05",
-            "title": "Predator: Badlands",
-            "video": false,
-            "vote_average": 7.379,
-            "vote_count": 548
+          "id": "com-10",
+          "titulo": "Son como niños",
+          "anio": 2010,
+          "descripcion": "Amigos de la infancia se reúnen tras muchos años.",
+          "publicado": true,
+          "poster": "https://m.media-amazon.com/images/M/MV5BMDJmYWI5NDctZjM5Zi00NzJiLTk4YTEtZjFhYTZhMTJiYWEzXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
         },
         {
-            "adult": false,
-            "backdrop_path": "/q9bvjUkpKltPE0S9oxci2pmD1Zx.jpg",
-            "genre_ids": [
-                878,
-                28
-            ],
-            "id": 1309012,
-            "original_language": "en",
-            "original_title": "Altered",
-            "overview": "En un presente alternativo, los humanos mejorados genéticamente dominan la sociedad. Los marginados Leon y Chloe luchan por la justicia contra los políticos corruptos que se aprovechan de la disparidad genética, arriesgándolo todo para desafiar al sistema opresor.",
-            "popularity": 155.7285,
-            "poster_path": "/6QlAcGRaUrgHcZ4WTBh5lsPnzKx.jpg",
-            "release_date": "2025-09-18",
-            "title": "Altered",
-            "video": false,
-            "vote_average": 6.531,
-            "vote_count": 49
+          "id": "com-11",
+          "titulo": "Zoolander",
+          "anio": 2001,
+          "descripcion": "Un modelo poco inteligente se ve envuelto en una conspiración.",
+          "publicado": true,
+          "poster": "https://www.originalfilmart.com/cdn/shop/products/Zoolander_2001_original_film_art_5000x.jpg?v=1565957238"
         },
         {
-            "adult": false,
-            "backdrop_path": "/tRdorrIjlybrGsebXOzgF7vRyYy.jpg",
-            "genre_ids": [
-                28,
-                53
-            ],
-            "id": 1469354,
-            "original_language": "en",
-            "original_title": "Border Hunters",
-            "overview": "Cuando una sobredosis de fentanilo causa la muerte de un joven estadounidense en México, el exespía Abraham Woodhill se ve envuelto en una misión desesperada para desmantelar los cárteles responsables. Con la ayuda del exagente preso Jake Byrne, el infame “Diablo Blanco”, se desata un juego peligroso entre selvas, pueblos y fortalezas de los cárteles.",
-            "popularity": 153.8777,
-            "poster_path": "/oCB0j331qr6CW1TtpgSgPccdYA7.jpg",
-            "release_date": "2025-10-20",
-            "title": "Cazadores de fronteras",
-            "video": false,
-            "vote_average": 8.75,
-            "vote_count": 8
+          "id": "com-12",
+          "titulo": "Tonto y retonto",
+          "anio": 1994,
+          "descripcion": "Dos amigos extremadamente tontos viajan por el país.",
+          "publicado": true,
+          "poster": "https://img.peliplat.com/api/resize/v1?imagePath=peliplat/default/20230613/fe4b2e722d1f6fd2d8829200d47bc690.jpeg&source=s3-peliplat&mode=LFIT&width=600&height=600&limit=false&c=1.jpg"
         },
         {
-            "adult": false,
-            "backdrop_path": "/iZLqwEwUViJdSkGVjePGhxYzbDb.jpg",
-            "genre_ids": [
-                878,
-                53
-            ],
-            "id": 755898,
-            "original_language": "en",
-            "original_title": "War of the Worlds",
-            "overview": "Will Radford, un destacado analista de ciberseguridad, pasa sus días rastreando posibles amenazas a la seguridad nacional a través de un programa de vigilancia masiva. Un ataque de una entidad desconocida le lleva a cuestionarse si el gobierno le está ocultando algo a él... y al resto del mundo.",
-            "popularity": 147.0975,
-            "poster_path": "/fjgSlNGECNgVeMJaOdDAXmGh7ZM.jpg",
-            "release_date": "2025-07-29",
-            "title": "La guerra de los mundos",
-            "video": false,
-            "vote_average": 4.294,
-            "vote_count": 764
+          "id": "com-13",
+          "titulo": "Todo Poderoso",
+          "anio": 2003,
+          "descripcion": "Un hombre recibe poderes divinos.",
+          "publicado": true,
+          "poster": "https://m.media-amazon.com/images/M/MV5BM2IyOTY3MTYtMmZiZS00MmU0LWFlZjctYTM4ZDdkNmUxNjA2XkEyXkFqcGc@._V1_.jpg"
         },
         {
-            "adult": false,
-            "backdrop_path": "/l8pwO23MCvqYumzozpxynCNfck1.jpg",
-            "genre_ids": [
-                14,
-                12,
-                10749
-            ],
-            "id": 967941,
-            "original_language": "en",
-            "original_title": "Wicked: For Good",
-            "overview": "Mientras la multitud alza su clamor contra la Bruja Malvada, Glinda y Elphaba deberán unirse una vez más. Con su singular amistad convertida en el punto de inflexión de su futuro, tendrán que mirarse a los ojos con honestidad y compasión para afrontar su transformación personal y cambiar el destino de todo Oz.",
-            "popularity": 142.4678,
-            "poster_path": "/2UdeIFlCk0OlvkmQEZb0PSdNUWf.jpg",
-            "release_date": "2025-11-19",
-            "title": "Wicked Parte II",
-            "video": false,
-            "vote_average": 6.748,
-            "vote_count": 367
-        },
-        {
-            "adult": false,
-            "backdrop_path": "/3k1PKmzNEosWFaOR1yC9ZKIYqmm.jpg",
-            "genre_ids": [
-                14,
-                16,
-                28,
-                878
-            ],
-            "id": 23527,
-            "original_language": "ru",
-            "original_title": "Первый отряд",
-            "overview": "En 1942 el combate que mantiene Alemania con Rusia parece no tener fin y ambos países comenzarán a desarrollar unidades especializadas en la magia y el ocultismo. Nadya, una joven medium, se convertirá en la mejor arma del ejército ruso para solventar a su favor ‘el momento de la verdad’, el segundo decisivo en que una batalla se gana o se pierde.",
-            "popularity": 138.4047,
-            "poster_path": "/m4zltJFwn5Xye7KjQOzNytVW6S0.jpg",
-            "release_date": "2009-05-13",
-            "title": "Primer Escuadrón",
-            "video": false,
-            "vote_average": 6.298,
-            "vote_count": 126
-        },
-        {
-            "adult": false,
-            "backdrop_path": "/7nAVXGHHtaNcdsqvDXmY6R9N0fG.jpg",
-            "genre_ids": [
-                28,
-                35
-            ],
-            "id": 1363123,
-            "original_language": "en",
-            "original_title": "The Family Plan 2",
-            "overview": "Dan ha dejado atrás su pasado como asesino y lo único que quiere esta Navidad es pasar tiempo de calidad con sus hijos. Pero, al ver que su hija tiene otros planes, organiza un viaje familiar a Londres... y los pone a todos en la mira de un enemigo inesperado.",
-            "popularity": 137.5241,
-            "poster_path": "/sxoN17pPyL6SiqD8F6DXmTPILwJ.jpg",
-            "release_date": "2025-11-11",
-            "title": "Plan en familia 2",
-            "video": false,
-            "vote_average": 6.688,
-            "vote_count": 295
-        },
-        {
-            "adult": false,
-            "backdrop_path": "/hpXBJxLD2SEf8l2CspmSeiHrBKX.jpg",
-            "genre_ids": [
-                18,
-                14,
-                27
-            ],
-            "id": 1062722,
-            "original_language": "en",
-            "original_title": "Frankenstein",
-            "overview": "Un científico brillante y obsesivo, Victor Frankenstein, en su ambición por desafiar a la muerte, da vida a una criatura ensamblada con partes de cadáveres. Pese a tratarse de una proeza científica, Frankenstein considera que la criatura carece de inteligencia y la rechaza. Dolida, esta se rebela contra su creador.",
-            "popularity": 131.3434,
-            "poster_path": "/hTj8x0ElKldJyAjTYvaqxkQNxxN.jpg",
-            "release_date": "2025-10-17",
-            "title": "Frankenstein",
-            "video": false,
-            "vote_average": 7.774,
-            "vote_count": 2057
-        },
-        {
-            "adult": false,
-            "backdrop_path": "/54BOXpX2ieTXMDzHymdDMnUIzYG.jpg",
-            "genre_ids": [
-                27,
-                53
-            ],
-            "id": 1228246,
-            "original_language": "en",
-            "original_title": "Five Nights at Freddy's 2",
-            "overview": "",
-            "popularity": 128.2784,
-            "poster_path": "/bYdANgEjbb3L1k1KpprAeZ6a5HN.jpg",
-            "release_date": "2025-12-03",
-            "title": "Five Nights at Freddy's 2",
-            "video": false,
-            "vote_average": 6.3,
-            "vote_count": 32
-        },
-        {
-            "adult": false,
-            "backdrop_path": "/ytCi1wg6YHpYcFRWCO2jpzN31Kf.jpg",
-            "genre_ids": [
-                28,
-                53,
-                80
-            ],
-            "id": 1196573,
-            "original_language": "en",
-            "original_title": "She Rides Shotgun",
-            "overview": "Tras salir de prisión, Nate debe proteger a su hija Polly de una peligrosa banda que ha puesto precio a sus vidas. Juntos emprenden una huida violenta y desesperada por el desierto, mientras él le enseña a sobrevivir en un mundo brutal. En el camino, padre e hija forjan un profundo vínculo marcado por la redención y el crecimiento mutuo... Adaptación de la premiada novela de Jordan Harper.",
-            "popularity": 125.584,
-            "poster_path": "/1ofdDh4ZHeFczYBKGYu4JEPuBsG.jpg",
-            "release_date": "2025-07-31",
-            "title": "La educación de Polly McClusky",
-            "video": false,
-            "vote_average": 7.098,
-            "vote_count": 128
-        },
-        {
-            "adult": false,
-            "backdrop_path": "/9tOkjBEiiGcaClgJFtwocStZvIT.jpg",
-            "genre_ids": [
-                16,
-                12,
-                10751,
-                35
-            ],
-            "id": 269149,
-            "original_language": "en",
-            "original_title": "Zootopia",
-            "overview": "La moderna metrópoli mamífera de Zootrópolis es una ciudad absolutamente única. Está compuesta de barrios con diferentes hábitats como la lujosa Plaza Sahara, el Distrito Selva Tropical y el gélido Distrito Tundra. Es un crisol donde los animales de cada entorno conviven, un lugar donde no importa lo que seas. De hecho puedes ser cualquier cosa, desde un elefante enorme hasta la musaraña más diminuta. Pero cuando llega la optimista agente Judy Hopps, descubre que ser la primera conejita de un cuerpo policial compuesto de animales duros y enormes no es nada fácil. Pero está decidida a demostrar su valía y se mete de cabeza en un caso, a pesar de que eso significa trabajar con Nick Wilde, un zorro parlanchín y estafador, para resolver el misterio.",
-            "popularity": 125.4079,
-            "poster_path": "/i3WnZpJkQYXXbSGplEGmyoyeskM.jpg",
-            "release_date": "2016-02-11",
-            "title": "Zootrópolis",
-            "video": false,
-            "vote_average": 7.8,
-            "vote_count": 17191
+          "id": "com-14",
+          "titulo": "Ted",
+          "anio": 2012,
+          "descripcion": "Un oso de peluche cobra vida.",
+          "publicado": true,
+          "poster": "https://m.media-amazon.com/images/I/41DsVUWsCLL._AC_UF894,1000_QL80_.jpg"
         }
-    ],
-    "total_pages": 54034,
-    "total_results": 1080674
+      ]
+    },
+    {
+      "id": "cat-terror",
+      "titulo": "Terror 👻",
+      "peliculas": [
+        {
+          "id": "ter-1",
+          "titulo": "The Conjuring",
+          "anio": 2013,
+          "descripcion": "Investigadores paranormales ayudan a una familia aterrorizada.",
+          "publicado": true,
+          "poster": "https://image.tmdb.org/t/p/w500/wVYREutTvI2tmxr6ujrHT704wGF.jpg"
+        },
+        {
+          "id": "ter-2",
+          "titulo": "It",
+          "anio": 2017,
+          "descripcion": "Un payaso aterrador acecha a un grupo de niños.",
+          "publicado": true,
+          "poster": "https://image.tmdb.org/t/p/w500/9E2y5Q7WlCVNEhP5GiVTjhEhx1o.jpg"
+        },
+        {
+          "id": "ter-3",
+          "titulo": "Hereditary",
+          "anio": 2018,
+          "descripcion": "Secretos familiares salen a la luz.",
+          "publicado": true,
+          "poster": "https://image.tmdb.org/t/p/w500/p9fmuz2Oj3HtEJEqbIwkFGUhVXD.jpg"
+        },
+        {
+          "id": "ter-4",
+          "titulo": "Insidious",
+          "anio": 2010,
+          "descripcion": "Una familia enfrenta entidades del más allá.",
+          "publicado": true,
+          "poster": "https://images.catalogue.d-box.com/posters/87130/_mobilePreview/0413a22f71fa0325d984a9cfc5dbf752.jpg"
+        },
+        {
+          "id": "ter-5",
+          "titulo": "Sinister",
+          "anio": 2012,
+          "descripcion": "Cintas malditas revelan asesinatos.",
+          "publicado": true,
+          "poster": "https://m.media-amazon.com/images/M/MV5BMjI5MTg1Njg0Ml5BMl5BanBnXkFtZTcwNzg2Mjc4Nw@@._V1_FMjpg_UX1000_.jpg"
+        },
+        {
+          "id": "ter-6",
+          "titulo": "The Ring",
+          "anio": 2002,
+          "descripcion": "Una cinta de video maldita causa muertes.",
+          "publicado": true,
+          "poster": "https://i0.wp.com/noescinetodoloquereluce.com/wp-content/uploads/2016/10/rings_ver3.jpg?ssl=1"
+        },
+        {
+          "id": "ter-7",
+          "titulo": "Saw",
+          "anio": 2004,
+          "descripcion": "Juegos macabros ponen a prueba la supervivencia.",
+          "publicado": true,
+          "poster": "https://dx35vtwkllhj9.cloudfront.net/lionsgateus/saw-x/images/regions/us/updates/onesheet.jpg"
+        },
+        {
+          "id": "ter-8",
+          "titulo": "The Exorcist",
+          "anio": 1973,
+          "descripcion": "Una posesión demoníaca aterradora.",
+          "publicado": true,
+          "poster": "https://postercity.com.ar/wp-content/uploads/2019/05/The-Exorcist-low.jpg"
+        },
+        {
+          "id": "ter-9",
+          "titulo": "Paranormal Activity",
+          "anio": 2007,
+          "descripcion": "Fenómenos extraños en una casa.",
+          "publicado": true,
+          "poster": "https://lh4.googleusercontent.com/proxy/4s0QoRVQSnpHjVRcp5TRfYZ9qMYq81c8vNLWLecqM-ZWJV2WJE9haVgw80O69-Qu0zfrOzZs_f7HecLGbgQfPS16rDcNkzCl2UMjoi6PmYIXuRQl"
+        },
+        {
+          "id": "ter-10",
+          "titulo": "Annabelle",
+          "anio": 2014,
+          "descripcion": "Una muñeca poseída causa terror.",
+          "publicado": true,
+          "poster": "https://m.media-amazon.com/images/M/MV5BNjkyMDU5ZWQtZDhkOC00ZWFjLWIyM2MtZWFhMDUzNjdlNzU2XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+        },
+        {
+          "id": "ter-11",
+          "titulo": "The Nun",
+          "anio": 2018,
+          "descripcion": "Un demonio toma forma de monja.",
+          "publicado": true,
+          "poster": "https://i.ebayimg.com/images/g/WMAAAOSwgjdicve4/s-l1200.jpg"
+        },
+        {
+          "id": "ter-12",
+          "titulo": "Halloween",
+          "anio": 1978,
+          "descripcion": "Un asesino acecha en la noche de Halloween.",
+          "publicado": true,
+          "poster": "https://m.media-amazon.com/images/I/71idgPXq-jL._AC_SL1500_.jpg"
+        },
+        {
+          "id": "ter-13",
+          "titulo": "Scream",
+          "anio": 1996,
+          "descripcion": "Un asesino enmascarado aterroriza adolescentes.",
+          "publicado": true,
+          "poster": "https://m.media-amazon.com/images/I/7114ViRptyL._AC_SL1500_.jpg"
+        },
+        {
+          "id": "ter-14",
+          "titulo": "The Babadook",
+          "anio": 2014,
+          "descripcion": "Un ente oscuro surge de un libro.",
+          "publicado": true,
+          "poster": "https://madebymutant.com/cdn/shop/files/MTNT_DECK_BABADOOK_PRODPAGE.png?v=1761316698&width=1946"
+        }
+      ]
+    },
+    {
+      "id": "cat-ciencia-ficcion",
+      "titulo": "Ciencia Ficción 🚀",
+      "peliculas": [
+        {
+          "id": "cf-1",
+          "titulo": "Interstellar",
+          "anio": 2014,
+          "descripcion": "Un viaje espacial para salvar a la humanidad.",
+          "publicado": true,
+          "poster": "https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg"
+        },
+        {
+          "id": "cf-2",
+          "titulo": "The Matrix",
+          "anio": 1999,
+          "descripcion": "La realidad es una simulación.",
+          "publicado": true,
+          "poster": "https://image.tmdb.org/t/p/w500/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg"
+        },
+        {
+          "id": "cf-3",
+          "titulo": "Blade Runner 2049",
+          "anio": 2017,
+          "descripcion": "Un futuro dominado por androides.",
+          "publicado": true,
+          "poster": "https://image.tmdb.org/t/p/w500/gajva2L0rPYkEWjzgFlBXCAVBE5.jpg"
+        },
+        {
+          "id": "cf-4",
+          "titulo": "Inception",
+          "anio": 2010,
+          "descripcion": "Sueños dentro de sueños.",
+          "publicado": true,
+          "poster": "https://image.tmdb.org/t/p/w500/edv5CZvWj09upOsy2Y6IwDhK8bt.jpg"
+        },
+        {
+          "id": "cf-5",
+          "titulo": "Avatar",
+          "anio": 2009,
+          "descripcion": "Un mundo alienígena en guerra.",
+          "publicado": true,
+          "poster": "https://static.posters.cz/image/1300/7182.jpg"
+        },
+        {
+          "id": "cf-6",
+          "titulo": "Gravity",
+          "anio": 2013,
+          "descripcion": "Supervivencia en el espacio.",
+          "publicado": true,
+          "poster": "https://image.tmdb.org/t/p/original/kZ2nZw8D681aphje8NJi8EfbL1U.jpg"
+        },
+        {
+          "id": "cf-7",
+          "titulo": "Arrival",
+          "anio": 2016,
+          "descripcion": "Contacto con extraterrestres.",
+          "publicado": true,
+          "poster": "https://www.originalfilmart.com/cdn/shop/products/Arrival_2016_original_film_art_e823c6c1-6f00-42c5-9a4a-74fbd7ec83a8_5000x.jpg?v=1636660813"
+        },
+        {
+          "id": "cf-8",
+          "titulo": "Elysium",
+          "anio": 2013,
+          "descripcion": "Desigualdad en el futuro.",
+          "publicado": true,
+          "poster": "https://hips.hearstapps.com/es.h-cdn.co/fotoes/images/noticias-cine/trailer-y-poster-de-elysium/6397367-1-esl-ES/Trailer-y-poster-de-Elysium.jpg?resize=640:*"
+        },
+        {
+          "id": "cf-9",
+          "titulo": "Dune",
+          "anio": 2021,
+          "descripcion": "La lucha por la especia.",
+          "publicado": true,
+          "poster": "https://image.tmdb.org/t/p/w500/d5NXSklXo0qyIYkgV94XAgMIckC.jpg"
+        },
+        {
+          "id": "cf-10",
+          "titulo": "The Martian",
+          "anio": 2015,
+          "descripcion": "Un astronauta queda varado en Marte.",
+          "publicado": true,
+          "poster": "https://m.media-amazon.com/images/I/81JJQZPrjBL._AC_SL1500_.jpg"
+        },
+        {
+          "id": "cf-11",
+          "titulo": "Minority Report",
+          "anio": 2002,
+          "descripcion": "Crímenes antes de que ocurran.",
+          "publicado": true,
+          "poster": "https://m.media-amazon.com/images/I/61PmgPilfvL._AC_UF894,1000_QL80_.jpg"
+        },
+        {
+          "id": "cf-12",
+          "titulo": "Oblivion",
+          "anio": 2013,
+          "descripcion": "Un futuro postapocalíptico.",
+          "publicado": true,
+          "poster": "https://m.media-amazon.com/images/I/71PcjyqrHBL.jpg"
+        },
+        {
+          "id": "cf-13",
+          "titulo": "Ready Player One",
+          "anio": 2018,
+          "descripcion": "Un mundo virtual domina la realidad.",
+          "publicado": true,
+          "poster": "https://m.media-amazon.com/images/I/71NaQGqIhAL._AC_SL1106_.jpg"
+        },
+        {
+          "id": "cf-14",
+          "titulo": "Ex Machina",
+          "anio": 2014,
+          "descripcion": "Inteligencia artificial avanzada.",
+          "publicado": true,
+          "poster": "https://postercity.com.ar/wp-content/uploads/2021/07/Ex-Machina.jpg"
+        }
+      ]
+    }
+  ]
 }

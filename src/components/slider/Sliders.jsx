@@ -1,30 +1,60 @@
 import React, { useState, useEffect } from 'react'
+import movieData from '../../assets/data/movie.json';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './Carousel.css';
 import peliculasData from '../../assets/data/peliculas.json';
 
 function Sliders() {
-  const categorias = peliculasData.categorias;
-  const [anchoVentana, setAnchoVentana] = useState(window.innerWidth);
+  // --- Datos ---
+  // Importamos el JSON de películas y lo transformamos a una estructura
+  // simple `categorias` que contiene `id`, `titulo` e `imagenes` (array de URLs).
+  // Esto facilita el renderizado del carousel, ya que el componente espera
+  // una lista de categorías cada una con una lista de imágenes.
+  // También protegemos el acceso en caso de que `movieData` sea undefined.
+  const categorias = (movieData && movieData.categorias)
+    ? movieData.categorias.map((cat) => ({
+        id: cat.id,
+        titulo: cat.titulo,
+        imagenes: (cat.peliculas || []).map((p) => p.poster),
+      }))
+    : [];
+
+  // Estado para forzar re-render al cambiar tamaño de ventana
+  // --- Resizing / re-render ---
+  // Mantenemos el ancho de ventana en el estado para que el componente
+  // vuelva a renderizar cuando cambie el tamaño y pueda recalcular
+  // cuántas imágenes mostrar por diapositiva.
+  const [windowWidth, setWindowWidth] = useState(
+    typeof window !== 'undefined' ? window.innerWidth : 1024
+  );
 
   useEffect(() => {
-    const redimensionado = () => {
-      setAnchoVentana(window.innerWidth);
+    // Debounce simple: evitamos muchos renders durante el resize
+    let timeoutId = null;
+    const handleResize = () => {
+      if (timeoutId) clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => setWindowWidth(window.innerWidth), 150);
     };
 
-    window.addEventListener('resize', redimensionado);
-    return () => window.removeEventListener('resize', redimensionado);
+    window.addEventListener('resize', handleResize);
+    return () => {
+      if (timeoutId) clearTimeout(timeoutId);
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
-  const obtenerCantidadImagenes = () => {
-    if (anchoVentana < 480) return 1;
-    if (anchoVentana < 768) return 2;
-    if (anchoVentana < 1024) return 3;
-    if (anchoVentana < 1200) return 4;
-    return 7;
-  };
+// --- Lógica de retorno de imágenes por diapositiva ---
+// Dependiendo del ancho, devolvemos cuántas imágenes deben aparecer
+// en cada 'carousel-item'. Esto se usa para agrupar las imágenes en
+// diapositivas y evitar que haya demasiado contenido en pantallas pequeñas.
+const obtenerCantidadImagenes = (ancho = windowWidth) => {
+  if (ancho < 480) return 1;      // Celular chico
+  if (ancho < 768) return 2;      // Celular grande / tablet chica
+  if (ancho < 1024) return 3;     // Tablet grande
 
+  return 7; // Monitores grandes
+};
   const renderCategoria = (categoria) => {
     const imagenesPorDiapositiva = obtenerCantidadImagenes();
     const totalDiapositivas = Math.ceil(categoria.imagenes.length / imagenesPorDiapositiva);
@@ -33,6 +63,11 @@ function Sliders() {
       <div key={categoria.id} className="mb-5 text-center">
         <h2 className="mb-2">{categoria.titulo}</h2>
 
+        {/*
+          - Contenedor principal del carousel: el `id` se usa como `data-bs-target`
+            para los botones prev/next. `data-bs-touch` permite arrastre táctil.
+          - Dentro está `.carousel-inner` que contiene una serie de `.carousel-item`.
+        */}
         <div id={categoria.id} className="carousel slide" data-bs-touch="true">
           <div className="carousel-inner">
             {Array.from({ length: totalDiapositivas }).map((_, indice) => {
@@ -43,26 +78,37 @@ function Sliders() {
               return (
                 <div
                   key={indice}
+                  // La primera diapositiva debe tener clase `active` para que
+                  // Bootstrap la muestre inicialmente.
                   className={`carousel-item ${indice === 0 ? "active" : ""}`}
                 >
+                  {/*
+                    Cada `.carousel-item` contiene un contenedor flex que muestra
+                    `imagenesPorDiapositiva` imágenes (o menos en la última diapositiva).
+                    Se usa `flex: 0 0 auto` en las imágenes para que no se encojan
+                    y mantengan su ancho definido.
+                  */}
                   <div
                     className="d-flex justify-content-center gap-3 p-2"
-                    style={{ minHeight: "180px" }}
-                  >
-                    {grupoImagenes.map((pelicula, i) => (
-                      <div key={i} style={{ textAlign: 'center' }}>
-                        <img
-                          src={pelicula.url}
-                          className="imgage-slider"
-                          style={{
-                            width: anchoVentana < 600 ? "60vw" : "250px",
-                            height: anchoVentana < 600 ? "250px" : "auto",
-                            objectFit: "cover",
-                            flex: "0 0 auto",
-                          }}
-                          alt={pelicula.titulo}
-                        />
-                      </div>
+                    style={{
+                      minHeight: "180px",
+                    }}
+                  >            
+                    {grupoImagenes.map((img, i) => (
+                      <img
+                        key={i}
+                        src={img}
+                        className="imgage-slider"
+                        style={{
+                          // Usamos `windowWidth` del estado para que al cambiar
+                          // el tamaño de ventana las dimensiones se actualicen.
+                          width: windowWidth < 600 ? "60vw" : "250px",
+                          height: windowWidth < 600 ? "250px" : "auto",
+                          objectFit: "cover",
+                          flex: "0 0 auto",
+                        }}
+                        alt={categoria.titulo}
+                      />
                     ))}
                   </div>
                 </div>
