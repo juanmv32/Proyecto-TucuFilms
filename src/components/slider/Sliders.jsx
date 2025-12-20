@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import movieData from '../../assets/data/movie.json';
+import { MovieContext } from '../../contexto/ContextoBD';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './Carousel.css';
-import peliculasData from '../../assets/data/peliculas.json';
 
 function Sliders() {
   // --- Datos ---
@@ -12,13 +12,24 @@ function Sliders() {
   // Esto facilita el renderizado del carousel, ya que el componente espera
   // una lista de categorías cada una con una lista de imágenes.
   // También protegemos el acceso en caso de que `movieData` sea undefined.
-  const categorias = (movieData && movieData.categorias)
-    ? movieData.categorias.map((cat) => ({
-        id: cat.id,
-        titulo: cat.titulo,
-        imagenes: (cat.peliculas || []).map((p) => p.poster),
-      }))
-    : [];
+  // --- Datos ---
+  // Preferimos tomar las categorías desde el contexto si está disponible
+  // (su valor tiene la forma { categorias, loading, error }). Si no existe
+  // el contexto, caemos al JSON importado `movieData`.
+  const contextValue = useContext(MovieContext);
+  const rawCategorias =
+    contextValue && Array.isArray(contextValue.categorias)
+      ? contextValue.categorias
+      : movieData && Array.isArray(movieData.categorias)
+      ? movieData.categorias
+      : [];
+
+  // Normalizamos la estructura para que cada categoría tenga `imagenes` (URLs)
+  const categorias = rawCategorias.map((cat) => ({
+    id: cat.id,
+    titulo: cat.titulo,
+    imagenes: (cat.peliculas || []).map((p) => p.poster),
+  }));
 
   // Estado para forzar re-render al cambiar tamaño de ventana
   // --- Resizing / re-render ---
