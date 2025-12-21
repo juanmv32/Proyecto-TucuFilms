@@ -29,7 +29,7 @@ const FooterApp = () => {
 
         {/* COLUMNA 3: REDES SOCIALES */}
         <div className="col d-flex justify-content-center gap-3 bg-secondary py-3">
-          <a href="http://" target="_blank" rel="noopener noreferrer">
+          <a href="http://www.facebook.com" target="_blank" rel="noopener noreferrer">
             <img
               src="https://cdn-icons-png.flaticon.com/512/733/733547.png"
               alt="Facebook"
@@ -37,7 +37,7 @@ const FooterApp = () => {
               style={{ maxWidth: "50px", height: "auto" }}
             />
           </a>
-          <a href="http://" target="_blank" rel="noopener noreferrer">
+          <a href="http://www.instagram.com/" target="_blank" rel="noopener noreferrer">
             <img
               src="https://cdn-icons-png.flaticon.com/512/174/174855.png"
               alt="Instagram"
@@ -45,7 +45,7 @@ const FooterApp = () => {
               style={{ maxWidth: "50px", height: "auto" }}
             />
           </a>
-          <a href="http://" target="_blank" rel="noopener noreferrer">
+          <a href="http://www.x.com" target="_blank" rel="noopener noreferrer">
             <img
               src="https://cdn-icons-png.flaticon.com/512/5968/5968830.png"
               alt="X"
