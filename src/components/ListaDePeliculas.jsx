@@ -116,9 +116,8 @@ function  FilaDeTable({items}){
         <ModalEdit/>
         </div>    
       {/* Título dinámico: si soloFavoritos es true, muestra "Mis Películas Favoritas", sino "Lista de Peliculas" */}
-      <div>
-       <h2 className='mx-5 mb-2'>{soloFavoritos ? 'Mis Películas Favoritas' : 'Lista de Peliculas'}</h2>
-       <div className="container mt-3">
+      <h2>{soloFavoritos ? 'Mis Películas Favoritas' : 'Lista de Peliculas'}</h2>
+      <div className="container mt-3 min-vh-100">
         <table className="table table-striped text-center">
           <thead>
             <tr className='bg-secondary'>
@@ -136,10 +135,7 @@ function  FilaDeTable({items}){
       ))}  
         </tbody>
          </table>
-        </div>
-      
-      </div>
-      
+        </div>     
     </>
   )
 }

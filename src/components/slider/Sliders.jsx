@@ -75,15 +75,15 @@ function Sliders() {
     const totalDiapositivas = Math.ceil(categoria.peliculas.length / imagenesPorDiapositiva);
 
     return (
-      <div key={categoria.id} className="mb-5 text-center">
+      <div key={categoria.id} className="py-2 text-center bg-dark ">
         {/* Título de la categoría */}
-        <h2 className="mb-2">{categoria.titulo}</h2>
+        <h2 className="py-2 bg-black bg-opacity-50 text-light border-top border-bottom border-">{categoria.titulo}</h2>
 
         {/* Contenedor principal del carousel de Bootstrap */}
         {/* id único por categoría para que los botones prev/next sepan qué carousel controlar */}
         {/* data-bs-touch habilita el deslizamiento táctil en móviles */}
         <div id={categoria.id} className="carousel slide" data-bs-touch="true">
-          <div className="carousel-inner">
+          <div className="carousel-inner bg-dark">
             {/* Creamos un array con tantos elementos como diapositivas necesitamos */}
             {Array.from({ length: totalDiapositivas }).map((_, indice) => {
               // Calculamos qué películas van en esta diapositiva
@@ -98,7 +98,7 @@ function Sliders() {
                   className={`carousel-item ${indice === 0 ? "active" : ""}`}
                 >
                   <div
-                    className="d-flex justify-content-center gap-3 p-2"
+                    className="d-flex justify-content-center gap-3 p-2 "
                     style={{
                       minHeight: "180px", // Altura mínima para evitar saltos visuales
                     }}
