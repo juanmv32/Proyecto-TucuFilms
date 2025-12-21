@@ -10,18 +10,21 @@ const NavBarApp = () => {
   const handleLogin = (e) => {
     e.preventDefault();
     
-    // Validación simple - credenciales hardcodeadas
+    // Validar credenciales
     if (username === 'juliometal' && password === 'blacksabbath') {
-      navigate('/Admin');
-      // Cerrar el modal programáticamente
-      const modalElement = document.getElementById('loginModal');
-      const modal = window. bootstrap.Modal.getInstance(modalElement);
-      if (modal) modal.hide();
+      setUsername('');
+      setPassword('');
+      
+      // Cerrar modal
+      document.querySelector('#loginModal .btn-close')?.click();
+      
+      // Redirigir a admin
+      setTimeout(() => navigate('/Admin'), 300);
+    } else {
+      alert('Credenciales incorrectas');
+      setUsername('');
+      setPassword('');
     }
-    
-    // Limpiar formulario
-    setUsername('');
-    setPassword('');
   };
 
   return (
@@ -41,7 +44,7 @@ const NavBarApp = () => {
                 <Link className="nav-link" to="/">Inicio</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/Admin">Administración</Link>
+                <button className="nav-link btn btn-link" data-bs-toggle="modal" data-bs-target="#loginModal" style={{ border: 'none', textDecoration: 'none' }}>Administración</button>
               </li>
             </ul>
           </div>
@@ -64,7 +67,7 @@ const NavBarApp = () => {
                     type="text" 
                     className="form-control" 
                     value={username}
-                    onChange={(e) => setUsername(e.target. value)}
+                    onChange={(e) => setUsername(e.target.value)}
                     required
                   />
                 </div>
@@ -74,7 +77,7 @@ const NavBarApp = () => {
                     type="password" 
                     className="form-control"
                     value={password}
-                    onChange={(e) => setPassword(e.target. value)}
+                    onChange={(e) => setPassword(e.target.value)}
                     required
                   />
                 </div>
