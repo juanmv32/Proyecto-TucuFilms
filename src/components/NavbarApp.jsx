@@ -1,5 +1,6 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import logo from "../assets/logotucufilms3.png";
 
 const NavBarApp = () => {
   const navigate = useNavigate();
@@ -10,7 +11,13 @@ const NavBarApp = () => {
     e.preventDefault();
     
     // Validación simple - credenciales hardcodeadas
-    (username === 'juliometal' && password === 'blacksabbath') && navigate('/Admin');
+    if (username === 'juliometal' && password === 'blacksabbath') {
+      navigate('/Admin');
+      // Cerrar el modal programáticamente
+      const modalElement = document.getElementById('loginModal');
+      const modal = window. bootstrap.Modal.getInstance(modalElement);
+      if (modal) modal.hide();
+    }
     
     // Limpiar formulario
     setUsername('');
@@ -19,14 +26,25 @@ const NavBarApp = () => {
 
   return (
     <>
-      {/* Navbar temporal - reemplazar con tu diseño personalizado */}
-      <nav className="navbar navbar-dark bg-dark">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div className="container-fluid">
-          <a className="navbar-brand" href="/">TucuFilms</a>
-          {/* Botón para abrir modal de login admin */}
-          <button className="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#loginModal">
-            Admin
+          <Link className="navbar-brand d-flex align-items-center" to="/">
+            <img src={logo} alt="logo TucuFilms" width="45" className="me-2" />
+            TucuFilms
+          </Link>
+          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span className="navbar-toggler-icon"></span>
           </button>
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav ms-auto">
+              <li className="nav-item">
+                <Link className="nav-link" to="/">Inicio</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/Admin">Administración</Link>
+              </li>
+            </ul>
+          </div>
         </div>
       </nav>
 
@@ -46,7 +64,7 @@ const NavBarApp = () => {
                     type="text" 
                     className="form-control" 
                     value={username}
-                    onChange={(e) => setUsername(e.target.value)}
+                    onChange={(e) => setUsername(e.target. value)}
                     required
                   />
                 </div>
@@ -56,11 +74,11 @@ const NavBarApp = () => {
                     type="password" 
                     className="form-control"
                     value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    onChange={(e) => setPassword(e.target. value)}
                     required
                   />
                 </div>
-                <button type="submit" className="btn btn-primary w-100" data-bs-dismiss="modal">Ingresar</button>
+                <button type="submit" className="btn btn-primary w-100">Ingresar</button>
               </form>
             </div>
           </div>
