@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useEffect, useContext, useMemo } from 'react'
 import movieData from '../../assets/data/movie.json';
 import { MovieContext } from '../../contexto/ContextoBD';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -6,17 +6,11 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './Carousel.css';
 
 function Sliders() {
-  // --- Datos ---
-  // Importamos el JSON de películas y lo transformamos a una estructura
-  // simple `categorias` que contiene `id`, `titulo` e `imagenes` (array de URLs).
-  // Esto facilita el renderizado del carousel, ya que el componente espera
-  // una lista de categorías cada una con una lista de imágenes.
-  // También protegemos el acceso en caso de que `movieData` sea undefined.
-  // --- Datos ---
-  // Preferimos tomar las categorías desde el contexto si está disponible
-  // (su valor tiene la forma { categorias, loading, error }). Si no existe
-  // el contexto, caemos al JSON importado `movieData`.
+  // Obtenemos el contexto que contiene las categorías actualizadas desde ContextoBD
   const contextValue = useContext(MovieContext);
+  
+  // Si el contexto tiene categorías las usamos, sino usamos el JSON como fallback
+  // Esto permite que el slider funcione incluso si el contexto falla
   const rawCategorias =
     contextValue && Array.isArray(contextValue.categorias)
       ? contextValue.categorias
@@ -24,101 +18,107 @@ function Sliders() {
       ? movieData.categorias
       : [];
 
-  // Normalizamos la estructura para que cada categoría tenga `imagenes` (URLs)
-  const categorias = rawCategorias.map((cat) => ({
-    id: cat.id,
-    titulo: cat.titulo,
-    imagenes: (cat.peliculas || []).map((p) => p.poster),
-  }));
+  // Normalizamos la estructura para asegurarnos que cada categoría tenga peliculas como array
+  // useMemo evita recalcular en cada render, solo cuando rawCategorias cambie
+  const categorias = useMemo(() => 
+    rawCategorias.map((cat) => ({
+      id: cat.id,
+      titulo: cat.titulo,
+      peliculas: cat.peliculas || [], // Si no hay peliculas, usamos array vacío
+    })),
+    [rawCategorias] // Solo se recalcula cuando rawCategorias cambia
+  );
 
-  // Estado para forzar re-render al cambiar tamaño de ventana
-  // --- Resizing / re-render ---
-  // Mantenemos el ancho de ventana en el estado para que el componente
-  // vuelva a renderizar cuando cambie el tamaño y pueda recalcular
-  // cuántas imágenes mostrar por diapositiva.
+  // Estado para guardar el ancho de la ventana y re-renderizar cuando cambie
+  // Esto permite adaptar el slider a diferentes tamaños de pantalla
   const [windowWidth, setWindowWidth] = useState(
     typeof window !== 'undefined' ? window.innerWidth : 1024
   );
 
+  // useEffect para detectar cambios de tamaño de ventana (responsive)
   useEffect(() => {
-    // Debounce simple: evitamos muchos renders durante el resize
-    let timeoutId = null;
+    let timeoutId = null; // Variable para el debounce
+    
+    // Función que se ejecuta cuando la ventana cambia de tamaño
     const handleResize = () => {
-      if (timeoutId) clearTimeout(timeoutId);
+      if (timeoutId) clearTimeout(timeoutId); // Limpiamos el timeout anterior
+      // Esperamos 150ms después de que termine el resize para actualizar
+      // Esto evita muchos re-renders mientras el usuario arrastra la ventana
       timeoutId = setTimeout(() => setWindowWidth(window.innerWidth), 150);
     };
 
+    // Agregamos el listener de resize al montar el componente
     window.addEventListener('resize', handleResize);
+    
+    // Cleanup: removemos el listener y limpiamos el timeout al desmontar
     return () => {
       if (timeoutId) clearTimeout(timeoutId);
       window.removeEventListener('resize', handleResize);
     };
-  }, []);
+  }, []); // Array vacío = solo se ejecuta al montar/desmontar
 
-// --- Lógica de retorno de imágenes por diapositiva ---
-// Dependiendo del ancho, devolvemos cuántas imágenes deben aparecer
-// en cada 'carousel-item'. Esto se usa para agrupar las imágenes en
-// diapositivas y evitar que haya demasiado contenido en pantallas pequeñas.
-const obtenerCantidadImagenes = (ancho = windowWidth) => {
-  if (ancho < 480) return 1;      // Celular chico
-  if (ancho < 768) return 2;      // Celular grande / tablet chica
-  if (ancho < 1024) return 3;     // Tablet grande
+  // Función que determina cuántas imágenes mostrar por diapositiva según el ancho
+  const obtenerCantidadImagenes = (ancho = windowWidth) => {
+    if (ancho < 480) return 1;   // Celular pequeño: 1 imagen
+    if (ancho < 768) return 2;   // Celular grande: 2 imágenes
+    if (ancho < 1024) return 3;  // Tablet: 3 imágenes
+    return 7;                     // Desktop: 7 imágenes
+  };
 
-  return 7; // Monitores grandes
-};
+  // Función que renderiza una categoría completa con su carousel
   const renderCategoria = (categoria) => {
+    // Obtenemos cuántas imágenes mostrar en cada diapositiva
     const imagenesPorDiapositiva = obtenerCantidadImagenes();
-    const totalDiapositivas = Math.ceil(categoria.imagenes.length / imagenesPorDiapositiva);
+    
+    // Calculamos cuántas diapositivas necesitamos para mostrar todas las películas
+    // Math.ceil redondea hacia arriba (ej: 10 películas / 3 = 4 diapositivas)
+    const totalDiapositivas = Math.ceil(categoria.peliculas.length / imagenesPorDiapositiva);
 
     return (
       <div key={categoria.id} className="mb-5 text-center">
+        {/* Título de la categoría */}
         <h2 className="mb-2">{categoria.titulo}</h2>
 
-        {/*
-          - Contenedor principal del carousel: el `id` se usa como `data-bs-target`
-            para los botones prev/next. `data-bs-touch` permite arrastre táctil.
-          - Dentro está `.carousel-inner` que contiene una serie de `.carousel-item`.
-        */}
+        {/* Contenedor principal del carousel de Bootstrap */}
+        {/* id único por categoría para que los botones prev/next sepan qué carousel controlar */}
+        {/* data-bs-touch habilita el deslizamiento táctil en móviles */}
         <div id={categoria.id} className="carousel slide" data-bs-touch="true">
           <div className="carousel-inner">
+            {/* Creamos un array con tantos elementos como diapositivas necesitamos */}
             {Array.from({ length: totalDiapositivas }).map((_, indice) => {
-              const inicio = indice * imagenesPorDiapositiva;
-              const fin = inicio + imagenesPorDiapositiva;
-              const grupoImagenes = categoria.imagenes.slice(inicio, fin);
+              // Calculamos qué películas van en esta diapositiva
+              const inicio = indice * imagenesPorDiapositiva; // Índice inicial
+              const fin = inicio + imagenesPorDiapositiva;     // Índice final
+              const grupoPeliculas = categoria.peliculas.slice(inicio, fin); // Cortamos el array
 
               return (
                 <div
                   key={indice}
-                  // La primera diapositiva debe tener clase `active` para que
-                  // Bootstrap la muestre inicialmente.
+                  // La primera diapositiva (índice 0) debe tener clase "active" para ser visible inicialmente
                   className={`carousel-item ${indice === 0 ? "active" : ""}`}
                 >
-                  {/*
-                    Cada `.carousel-item` contiene un contenedor flex que muestra
-                    `imagenesPorDiapositiva` imágenes (o menos en la última diapositiva).
-                    Se usa `flex: 0 0 auto` en las imágenes para que no se encojan
-                    y mantengan su ancho definido.
-                  */}
                   <div
                     className="d-flex justify-content-center gap-3 p-2"
                     style={{
-                      minHeight: "180px",
+                      minHeight: "180px", // Altura mínima para evitar saltos visuales
                     }}
                   >            
-                    {grupoImagenes.map((img, i) => (
+                    {/* Recorremos las películas de esta diapositiva */}
+                    {grupoPeliculas.map((p, i) => (
                       <img
-                        key={i}
-                        src={img}
+                        key={p.id || i} // key única (preferimos id, sino índice)
+                        src={p.poster} // URL del póster de la película
+                        // data-publicado permite ocultar con CSS (img[data-publicado="false"])
+                        data-publicado={String(p.publicado)} // Convertimos boolean a string
                         className="imgage-slider"
                         style={{
-                          // Usamos `windowWidth` del estado para que al cambiar
-                          // el tamaño de ventana las dimensiones se actualicen.
+                          // Tamaño adaptativo según ancho de ventana
                           width: windowWidth < 600 ? "60vw" : "250px",
                           height: windowWidth < 600 ? "250px" : "auto",
-                          objectFit: "cover",
-                          flex: "0 0 auto",
+                          objectFit: "cover", // La imagen cubre el espacio sin deformarse
+                          flex: "0 0 auto",    // No crece ni encoge en flexbox
                         }}
-                        alt={categoria.titulo}
+                        alt={p.titulo} // Texto alternativo para accesibilidad
                       />
                     ))}
                   </div>
@@ -127,20 +127,23 @@ const obtenerCantidadImagenes = (ancho = windowWidth) => {
             })}
           </div>
 
+          {/* Botón para ir a la diapositiva anterior */}
+          {/* data-bs-target debe coincidir con el id del carousel */}
           <button
             className="carousel-control-prev d-flex justify-content-start"
             type="button"
-            data-bs-target={`#${categoria.id}`}
-            data-bs-slide="prev"
+            data-bs-target={`#${categoria.id}`} // Apunta al carousel de esta categoría
+            data-bs-slide="prev" // Le dice a Bootstrap que retroceda
           >
             <span className="carousel-control-prev-icon"></span>
           </button>
 
+          {/* Botón para ir a la siguiente diapositiva */}
           <button
             className="carousel-control-next d-flex justify-content-end"
             type="button"
-            data-bs-target={`#${categoria.id}`}
-            data-bs-slide="next"
+            data-bs-target={`#${categoria.id}`} // Apunta al carousel de esta categoría
+            data-bs-slide="next" // Le dice a Bootstrap que avance
           >
             <span className="carousel-control-next-icon"></span>
           </button>
@@ -149,6 +152,7 @@ const obtenerCantidadImagenes = (ancho = windowWidth) => {
     );
   };
 
+  // Renderizamos todas las categorías, cada una con su propio carousel
   return <div>{categorias.map(renderCategoria)}</div>;
 }
 

@@ -1,16 +1,12 @@
 import { BrowserRouter } from "react-router-dom";
 import RoutesPrincipal from "./routes/RoutesPrincipal";
-import NavBarApp from "./components/NavbarApp";
-import { UseProvider } from "./contexto/ContextoBD";
-import HomeScreen from "./views/Homescreen";
 
-
-const App = () => {
+function App() {
   return (
     <BrowserRouter>
-      <RoutesPrincipal/>
+      <RoutesPrincipal />
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;
