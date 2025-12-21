@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { UserContext } from '../contexto/ContextoBD';
+import ModalEdit from './ModalEdit';
 
 export default function ListaDePeliculas({ soloFavoritos = false }) {
 
@@ -111,9 +112,13 @@ function  FilaDeTable({items}){
 
   return (
     <>
+       <div className='container d-flex justify-content-end mt-5'>
+        <ModalEdit/>
+        </div>    
       {/* Título dinámico: si soloFavoritos es true, muestra "Mis Películas Favoritas", sino "Lista de Peliculas" */}
-      <h2>{soloFavoritos ? 'Mis Películas Favoritas' : 'Lista de Peliculas'}</h2>
-      <div className="container mt-3">
+      <div>
+       <h2 className='mx-5 mb-2'>{soloFavoritos ? 'Mis Películas Favoritas' : 'Lista de Peliculas'}</h2>
+       <div className="container mt-3">
         <table className="table table-striped text-center">
           <thead>
             <tr className='bg-secondary'>
@@ -123,15 +128,18 @@ function  FilaDeTable({items}){
         <th className='bg-secondary'>Descripcion</th>
         <th className='bg-secondary'>Publicado</th>
         <th className='bg-secondary'>Acciones</th>
-      </tr>
-     </thead>
-     <tbody>
+         </tr>
+         </thead>
+         <tbody>
       {lista.map((item)=>(
         <FilaDeTable key={item.id} items={item}/>
       ))}  
-    </tbody>
-    </table>
-   </div>
+        </tbody>
+         </table>
+        </div>
+      
+      </div>
+      
     </>
   )
 }
