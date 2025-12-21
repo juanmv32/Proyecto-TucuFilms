@@ -5,19 +5,19 @@ import  { use, useContext, useState } from 'react'
 export default function ModalEdit() {
    
 
- const { user, actualizarPelicula } = useContext(UserContext);
+//  const { user, actualizarPelicula } = useContext(UserContext);
    
-const agregarPelicula = ()=>{
-      const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm()  
-}
+// const agregarPelicula = ()=>{
+//       const {
+//     register,
+//     handleSubmit,
+//     watch,
+//     formState: { errors },
+//   } = useForm()  
+// }
      
     
-const onSubmit = (data) => console.log(data)    
+// const onSubmit = (data) => console.log(data)    
    
    
    
@@ -30,7 +30,7 @@ const onSubmit = (data) => console.log(data)
 
 <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div className=" modal-dialog modal-dialog-centered">
-    <form className="modal-content bg-dark" onSubmit={handleSubmit(onSubmit)}>
+    <form className="modal-content bg-dark">
       <div className="modal-header text-light">
         <h1 className="modal-title fs-5" id="exampleModalLabel">Agregar/Editar</h1>
       </div>
@@ -38,7 +38,7 @@ const onSubmit = (data) => console.log(data)
        <div>
        <div className="mb-3">
         <label for="exampleInputEmail1" className="form-label text-light">Nombre</label>
-        <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" defaultValue="test" {...register("example")} />
+        <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
         </div>
          <div className="mb-3">
          <label for="exampleInputPassword1" className="form-label text-light">Categoria</label>
