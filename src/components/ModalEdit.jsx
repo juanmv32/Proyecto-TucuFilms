@@ -9,19 +9,17 @@ export default function ModalEdit() {
 
  
 
- console.log(user[0])
-
 const [datosPelicula, setdatosPelicula] = useState({  id: "",titulo: "", anio: 0, descripcion: "", publicado: false, poster: ""});
 
-  // const handleChange = (e) => {
-  //   const { name, value } = e.target;
-  //   setdatosPelicula({ ...datosPelicula, [name]: value }); // Actualiza el estado
-  // };
+  const cambiarDatos = (e) => {
+    const { name, value } = e.target;
+    setdatosPelicula({ ...datosPelicula, [name]: value }); // Actualiza el estado
+  };
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault(); // Previene recarga de página
-  //   console.log('Datos del formulario:', datosPelicula); // Aquí tienes tu objeto
-  // };
+  const guardarDatos = (e) => {
+    ; // Previene recarga de página
+    console.log('Datos del formulario:', datosPelicula); // Aquí tienes tu objeto
+  };
 
     
    
@@ -37,7 +35,7 @@ const [datosPelicula, setdatosPelicula] = useState({  id: "",titulo: "", anio: 0
 
 <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div className=" modal-dialog modal-dialog-centered">
-    <form className="modal-content bg-dark">
+    <form className="modal-content bg-dark" onSubmit={guardarDatos}>
       <div className="modal-header text-light">
         <h1 className="modal-title fs-5" id="exampleModalLabel">Agregar/Editar</h1>
       </div>
@@ -45,15 +43,15 @@ const [datosPelicula, setdatosPelicula] = useState({  id: "",titulo: "", anio: 0
        <div>
        <div className="mb-3">
         <label htmlFor="nombrePelicula" className="form-label text-light">Nombre</label>
-        <input type="text" className="form-control" id="nombrePelicula"/>
+        <input type="text" className="form-control" id="nombrePelicula" name='titulo' value={datosPelicula.titulo} onChange={cambiarDatos}/>
         </div>
         <div className="mb-3">
         <label htmlFor="añoPelicula" className="form-label text-light">Año</label>
-        <input type="text" className="form-control" id="añoPelicula"/>
+        <input type="text" className="form-control" id="añoPelicula" name='anio' value={datosPelicula.anio} onChange={cambiarDatos}/>
         </div>
          <div className="mb-3">
          <label htmlFor="exampleInputPassword1" className="form-label text-light">Categoria</label>
-        <select className="form-select"aria-label="Default select example" id="rol">
+        <select className="form-select"aria-label="Default select example" id="rol" name='categoria'>
 
             <option value="">Selecciona un puesto</option>
             <option value="Terror">Terror</option>
@@ -63,11 +61,11 @@ const [datosPelicula, setdatosPelicula] = useState({  id: "",titulo: "", anio: 0
         </div>
         <div className="mb-3">
             <label htmlFor="exampleFormControlTextarea1" className="form-label text-light">Descripcion</label>
-            <textarea className="form-control" id="exampleFormControlTextarea1" rows="3" maxLength={200}style={{resize:'none'}}></textarea>
+            <textarea className="form-control" id="exampleFormControlTextarea1" rows="3" maxLength={200}style={{resize:'none'}} ></textarea>
         </div>
        <div className="mb-3 form-check">
-       <input type="checkbox" className="form-check-input" id="exampleCheck1"/>
-       <label className="form-check-label text-light" htmlFor="exampleCheck1">Publicado</label>
+       <input type="checkbox" className="form-check-input" id="exampleCheck1" value={datosPelicula.publicado} onChange={cambiarDatos}/>
+       <label className="form-check-label text-light" htmlFor="exampleCheck1" >Publicado</label>
        </div>
       
      </div>
