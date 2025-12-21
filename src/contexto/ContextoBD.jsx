@@ -1,36 +1,91 @@
-import { createContext, useState } from "react";
-// aqui inicializamos la variable UserContext que sera importada en cada componente que necesite acceder al contexto
-export const UserContext =  createContext(null);
+import React, { createContext, useEffect, useState, useCallback } from 'react';
+import data from '../assets/data/movie.json';
 
- export const UseProvider = ({children})=>{
-const peliculas = [
-  { id: 1, pelicula: "Solaris", categoria: "Drama", descripcion: "Viaje", publicado: true,  favorito: false },
-  { id: 2, pelicula: "Nebula", categoria: "Accion", descripcion: "Lucha", publicado: false, favorito: true  },
-  { id: 3, pelicula: "Eclipse", categoria: "Terror", descripcion: "Miedo", publicado: true,  favorito: true  },
-  { id: 4, pelicula: "Orion",  categoria: "SciFi",  descripcion: "Futuro", publicado: false, favorito: false },
-  { id: 5, pelicula: "Raptor", categoria: "Aventura", descripcion: "Selva", publicado: true,  favorito: false },
-  { id: 6, pelicula: "Titan",  categoria: "Drama", descripcion: "Destino", publicado: false, favorito: true  },
-  { id: 7, pelicula: "Phoenix", categoria: "Accion", descripcion: "Venganza", publicado: true, favorito: false },
-  { id: 8, pelicula: "Quasar", categoria: "SciFi", descripcion: "Energia", publicado: false, favorito: true },
-  { id: 9, pelicula: "Mirage", categoria: "Comedia", descripcion: "Risa", publicado: true, favorito: true },
-  { id: 10, pelicula: "Blazer", categoria: "Terror", descripcion: "Oscuro", publicado: false, favorito: false }
-];
+// Creamos el contexto con valores iniciales
+export const MovieContext = createContext({
+  categorias: [],
+  loading: true,
+  error: null,
+});
 
+export const MovieProvider = ({ children }) => {
+  const [categorias, setCategorias] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-
-// localStorage.setItem("peliculas", JSON.stringify(peliculas))
-
-     
-     const [user,setUser] = useState(JSON.parse(localStorage.getItem("peliculas")))
-  
-
-      const actualizarPelicula = (peliculas)=>{
-           setUser(peliculas)
-           localStorage.setItem("peliculas", JSON.stringify(peliculas))
+  useEffect(() => {
+    try {
+      // Limpiar localStorage viejos que ya no se usan
+      localStorage.removeItem('peliculas');
+      
+      // Intentar cargar desde localStorage primero
+      const storedData = localStorage.getItem('movieData');
+      let cats;
+      
+      if (storedData) {
+        cats = JSON.parse(storedData);
+      } else {
+        cats = data.categorias ?? [];
+        // Guardar en localStorage la primera vez
+        localStorage.setItem('movieData', JSON.stringify(cats));
       }
 
+      setCategorias(cats);
+      setLoading(false);
+    } catch (err) {
+      console.error('Error cargando JSON:', err);
+      setError(err);
+      setLoading(false);
+      setCategorias([]);
+    }
+  }, []);
 
-     return(
-        <UserContext.Provider value={{user, actualizarPelicula}}>{children}</UserContext.Provider>
-     )
-}
+  // Lista plana de películas (añadimos el id de la categoría origen)
+  const user = categorias.flatMap((cat) =>
+    (cat.peliculas || []).map((p) => ({ ...p, categoriaId: cat.id }))
+  );
+
+  // Actualiza la lista plana de películas: reconstruye las categorías
+  // a partir del array plano recibido. No modifica títulos de categorías
+  // existentes; preserva el orden conocido en `categorias` cuando sea posible.
+  const actualizarPelicula = useCallback((updatedFlatList) => {
+    setCategorias((currentCategorias) => {
+      const map = {};
+
+      // Inicializa con categorías actuales para preservar títulos y orden
+      currentCategorias.forEach((cat) => {
+        map[cat.id] = { ...cat, peliculas: [] };
+      });
+
+      // Si no hay categorías aún, crear una por defecto
+      if (Object.keys(map).length === 0) {
+        map['default'] = { id: 'default', titulo: 'Sin categoría', peliculas: [] };
+      }
+
+      // Distribuye las películas actualizadas en sus categorías
+      updatedFlatList.forEach((p) => {
+        const catId = p.categoriaId ?? p.categoria ?? Object.keys(map)[0];
+        if (!map[catId]) map[catId] = { id: catId, titulo: catId, peliculas: [] };
+        map[catId].peliculas.push({ ...p });
+      });
+
+      // Reconstruye un array de categorías respetando el orden original cuando sea posible
+      const newCategorias = Object.keys(map).map((id) => map[id]);
+      
+      // Guardar en localStorage
+      localStorage.setItem('movieData', JSON.stringify(newCategorias));
+      
+      return newCategorias;
+    });
+  }, []);
+
+  return (
+    <MovieContext.Provider value={{ categorias, loading, error, user, actualizarPelicula }}>
+      {children}
+    </MovieContext.Provider>
+  );
+};
+
+// Alias opcional
+export const UserContext = MovieContext;
+export const UseProvider = MovieProvider;

@@ -1,0 +1,54 @@
+/* --- EVITA QUE SE APILEN COMO COLUMNA --- */
+.carousel-item div {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+.carousel-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px; 
+  width: 100%;
+  padding: 0 20px; 
+}
+
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: rgba(0,0,0,0.6);
+  border-radius: 50%;
+  padding: 6px;
+  width: 36px;
+  height: 36px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 18px 18px;
+}
+
+/* Reduce el área clicable del botón del carousel: acota padding/width del contenedor */
+.carousel-control-prev,
+.carousel-control-next {
+  width: auto !important;
+  padding: 0 8px !important;
+  background: transparent !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 600px) {
+  .carousel-item .imgage-slider {
+    width: 280px !important;
+    height: 400px !important;
+  }
+
+  .carousel-item  div {
+    flex-wrap: nowrap !important;
+    justify-content: center !important;
+  }
+}
+
+/* Ocultar imágenes cuyo atributo data-publicado sea "false" sin usar JS condicional */
+img[data-publicado="false"] {
+  display: none;
+}
