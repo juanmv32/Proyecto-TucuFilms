@@ -1,7 +1,9 @@
 import React from "react";
+import { useContext } from "react";
+import { UserContext } from "../contexto/ContextoBD";
 
 const FooterApp = () => {
-  return <div>FooterApp</div>;
+const { categorias } = useContext(UserContext);
 };
 
 export default FooterApp;

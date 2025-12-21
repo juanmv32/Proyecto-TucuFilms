@@ -1,0 +1,358 @@
+{
+  "categorias": [
+    {
+      "id": "cat-comedia",
+      "titulo": "Comedia 😂",
+      "peliculas": [
+        {
+          "id": "com-1",
+          "titulo": "Superbad",
+          "anio": 2007,
+          "descripcion": "Dos amigos adolescentes intentan disfrutar su última gran noche antes de graduarse.",
+          "publicado": true,
+          "poster": "https://image.tmdb.org/t/p/w500/ek8e8txUyUwd2BNqj6lFEerJfbq.jpg"
+        },
+        {
+          "id": "com-2",
+          "titulo": "The Mask",
+          "anio": 1994,
+          "descripcion": "Un hombre común descubre una máscara con poderes extraordinarios.",
+          "publicado": true,
+          "poster": "https://image.tmdb.org/t/p/w500/xbbXp9px4o8Oe7IbGd0yIbla8mZ.jpg"
+        },
+        {
+          "id": "com-3",
+          "titulo": "Yes Man",
+          "anio": 2008,
+          "descripcion": "Un hombre decide decir sí a todas las oportunidades.",
+          "publicado": true,
+          "poster": "https://cdn11.bigcommerce.com/s-yzgoj/images/stencil/1280x1280/products/2865150/5903933/MOVII0606__31974.1679559987.jpg?c=2"
+        },
+        {
+          "id": "com-4",
+          "titulo": "Que paso ayer",
+          "anio": 2009,
+          "descripcion": "Una despedida de soltero termina de forma caótica en Las Vegas.",
+          "publicado": true,
+          "poster": "https://m.media-amazon.com/images/M/MV5BOWY0YzE1OTYtOTZkZC00YTVhLTkwZjQtYTQwNmExNmUxYTU4XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+        },
+        {
+          "id": "com-5",
+          "titulo": "Mentiroso Mentiroso",
+          "anio": 1997,
+          "descripcion": "Un abogado no puede mentir durante 24 horas.",
+          "publicado": true,
+          "poster": "https://image.tmdb.org/t/p/original/d4HHI6uc8CNvQaLd8cVdk1tXTwE.jpg"
+        },
+        {
+          "id": "com-6",
+          "titulo": "Click",
+          "anio": 2006,
+          "descripcion": "Un control remoto permite manipular la vida.",
+          "publicado": true,
+          "poster": "https://m.media-amazon.com/images/I/51JM5CyGAVL._AC_UF894,1000_QL80_.jpg"
+        },
+        {
+          "id": "com-7",
+          "titulo": "Scary Movie",
+          "anio": 2000,
+          "descripcion": "Parodia de películas de terror.",
+          "publicado": true,
+          "poster": "https://image.tmdb.org/t/p/w500/lRQiJXETkCnVVurHmglNvMXrZOx.jpg"
+        },
+        {
+          "id": "com-8",
+          "titulo": "Ace Ventura",
+          "anio": 1994,
+          "descripcion": "Un detective muy particular busca mascotas perdidas.",
+          "publicado": true,
+          "poster": "https://image.tmdb.org/t/p/w500/pqiRuETmuSybfnVZ7qyeoXhQyN1.jpg"
+        },
+        {
+          "id": "com-9",
+          "titulo": "Norbit",
+          "anio": 2007,
+          "descripcion": "Un hombre intenta escapar de un matrimonio imposible.",
+          "publicado": true,
+          "poster": "https://m.media-amazon.com/images/M/MV5BMTI4NDE4MjgyNV5BMl5BanBnXkFtZTcwMTQwODc0MQ@@._V1_FMjpg_UX1000_.jpg"
+        },
+        {
+          "id": "com-10",
+          "titulo": "Son como niños",
+          "anio": 2010,
+          "descripcion": "Amigos de la infancia se reúnen tras muchos años.",
+          "publicado": true,
+          "poster": "https://m.media-amazon.com/images/M/MV5BMDJmYWI5NDctZjM5Zi00NzJiLTk4YTEtZjFhYTZhMTJiYWEzXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+        },
+        {
+          "id": "com-11",
+          "titulo": "Zoolander",
+          "anio": 2001,
+          "descripcion": "Un modelo poco inteligente se ve envuelto en una conspiración.",
+          "publicado": true,
+          "poster": "https://www.originalfilmart.com/cdn/shop/products/Zoolander_2001_original_film_art_5000x.jpg?v=1565957238"
+        },
+        {
+          "id": "com-12",
+          "titulo": "Tonto y retonto",
+          "anio": 1994,
+          "descripcion": "Dos amigos extremadamente tontos viajan por el país.",
+          "publicado": true,
+          "poster": "https://img.peliplat.com/api/resize/v1?imagePath=peliplat/default/20230613/fe4b2e722d1f6fd2d8829200d47bc690.jpeg&source=s3-peliplat&mode=LFIT&width=600&height=600&limit=false&c=1.jpg"
+        },
+        {
+          "id": "com-13",
+          "titulo": "Todo Poderoso",
+          "anio": 2003,
+          "descripcion": "Un hombre recibe poderes divinos.",
+          "publicado": true,
+          "poster": "https://m.media-amazon.com/images/M/MV5BM2IyOTY3MTYtMmZiZS00MmU0LWFlZjctYTM4ZDdkNmUxNjA2XkEyXkFqcGc@._V1_.jpg"
+        },
+        {
+          "id": "com-14",
+          "titulo": "Ted",
+          "anio": 2012,
+          "descripcion": "Un oso de peluche cobra vida.",
+          "publicado": true,
+          "poster": "https://m.media-amazon.com/images/I/41DsVUWsCLL._AC_UF894,1000_QL80_.jpg"
+        }
+      ]
+    },
+    {
+      "id": "cat-terror",
+      "titulo": "Terror 👻",
+      "peliculas": [
+        {
+          "id": "ter-1",
+          "titulo": "The Conjuring",
+          "anio": 2013,
+          "descripcion": "Investigadores paranormales ayudan a una familia aterrorizada.",
+          "publicado": true,
+          "poster": "https://image.tmdb.org/t/p/w500/wVYREutTvI2tmxr6ujrHT704wGF.jpg"
+        },
+        {
+          "id": "ter-2",
+          "titulo": "It",
+          "anio": 2017,
+          "descripcion": "Un payaso aterrador acecha a un grupo de niños.",
+          "publicado": true,
+          "poster": "https://image.tmdb.org/t/p/w500/9E2y5Q7WlCVNEhP5GiVTjhEhx1o.jpg"
+        },
+        {
+          "id": "ter-3",
+          "titulo": "Hereditary",
+          "anio": 2018,
+          "descripcion": "Secretos familiares salen a la luz.",
+          "publicado": true,
+          "poster": "https://image.tmdb.org/t/p/w500/p9fmuz2Oj3HtEJEqbIwkFGUhVXD.jpg"
+        },
+        {
+          "id": "ter-4",
+          "titulo": "Insidious",
+          "anio": 2010,
+          "descripcion": "Una familia enfrenta entidades del más allá.",
+          "publicado": true,
+          "poster": "https://images.catalogue.d-box.com/posters/87130/_mobilePreview/0413a22f71fa0325d984a9cfc5dbf752.jpg"
+        },
+        {
+          "id": "ter-5",
+          "titulo": "Sinister",
+          "anio": 2012,
+          "descripcion": "Cintas malditas revelan asesinatos.",
+          "publicado": true,
+          "poster": "https://m.media-amazon.com/images/M/MV5BMjI5MTg1Njg0Ml5BMl5BanBnXkFtZTcwNzg2Mjc4Nw@@._V1_FMjpg_UX1000_.jpg"
+        },
+        {
+          "id": "ter-6",
+          "titulo": "The Ring",
+          "anio": 2002,
+          "descripcion": "Una cinta de video maldita causa muertes.",
+          "publicado": true,
+          "poster": "https://i0.wp.com/noescinetodoloquereluce.com/wp-content/uploads/2016/10/rings_ver3.jpg?ssl=1"
+        },
+        {
+          "id": "ter-7",
+          "titulo": "Saw",
+          "anio": 2004,
+          "descripcion": "Juegos macabros ponen a prueba la supervivencia.",
+          "publicado": true,
+          "poster": "https://dx35vtwkllhj9.cloudfront.net/lionsgateus/saw-x/images/regions/us/updates/onesheet.jpg"
+        },
+        {
+          "id": "ter-8",
+          "titulo": "The Exorcist",
+          "anio": 1973,
+          "descripcion": "Una posesión demoníaca aterradora.",
+          "publicado": true,
+          "poster": "https://postercity.com.ar/wp-content/uploads/2019/05/The-Exorcist-low.jpg"
+        },
+        {
+          "id": "ter-9",
+          "titulo": "Paranormal Activity",
+          "anio": 2007,
+          "descripcion": "Fenómenos extraños en una casa.",
+          "publicado": true,
+          "poster": "https://lh4.googleusercontent.com/proxy/4s0QoRVQSnpHjVRcp5TRfYZ9qMYq81c8vNLWLecqM-ZWJV2WJE9haVgw80O69-Qu0zfrOzZs_f7HecLGbgQfPS16rDcNkzCl2UMjoi6PmYIXuRQl"
+        },
+        {
+          "id": "ter-10",
+          "titulo": "Annabelle",
+          "anio": 2014,
+          "descripcion": "Una muñeca poseída causa terror.",
+          "publicado": true,
+          "poster": "https://m.media-amazon.com/images/M/MV5BNjkyMDU5ZWQtZDhkOC00ZWFjLWIyM2MtZWFhMDUzNjdlNzU2XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+        },
+        {
+          "id": "ter-11",
+          "titulo": "The Nun",
+          "anio": 2018,
+          "descripcion": "Un demonio toma forma de monja.",
+          "publicado": true,
+          "poster": "https://i.ebayimg.com/images/g/WMAAAOSwgjdicve4/s-l1200.jpg"
+        },
+        {
+          "id": "ter-12",
+          "titulo": "Halloween",
+          "anio": 1978,
+          "descripcion": "Un asesino acecha en la noche de Halloween.",
+          "publicado": true,
+          "poster": "https://m.media-amazon.com/images/I/71idgPXq-jL._AC_SL1500_.jpg"
+        },
+        {
+          "id": "ter-13",
+          "titulo": "Scream",
+          "anio": 1996,
+          "descripcion": "Un asesino enmascarado aterroriza adolescentes.",
+          "publicado": true,
+          "poster": "https://m.media-amazon.com/images/I/7114ViRptyL._AC_SL1500_.jpg"
+        },
+        {
+          "id": "ter-14",
+          "titulo": "The Babadook",
+          "anio": 2014,
+          "descripcion": "Un ente oscuro surge de un libro.",
+          "publicado": true,
+          "poster": "https://madebymutant.com/cdn/shop/files/MTNT_DECK_BABADOOK_PRODPAGE.png?v=1761316698&width=1946"
+        }
+      ]
+    },
+    {
+      "id": "cat-ciencia-ficcion",
+      "titulo": "Ciencia Ficción 🚀",
+      "peliculas": [
+        {
+          "id": "cf-1",
+          "titulo": "Interstellar",
+          "anio": 2014,
+          "descripcion": "Un viaje espacial para salvar a la humanidad.",
+          "publicado": true,
+          "poster": "https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg"
+        },
+        {
+          "id": "cf-2",
+          "titulo": "The Matrix",
+          "anio": 1999,
+          "descripcion": "La realidad es una simulación.",
+          "publicado": true,
+          "poster": "https://image.tmdb.org/t/p/w500/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg"
+        },
+        {
+          "id": "cf-3",
+          "titulo": "Blade Runner 2049",
+          "anio": 2017,
+          "descripcion": "Un futuro dominado por androides.",
+          "publicado": true,
+          "poster": "https://image.tmdb.org/t/p/w500/gajva2L0rPYkEWjzgFlBXCAVBE5.jpg"
+        },
+        {
+          "id": "cf-4",
+          "titulo": "Inception",
+          "anio": 2010,
+          "descripcion": "Sueños dentro de sueños.",
+          "publicado": true,
+          "poster": "https://image.tmdb.org/t/p/w500/edv5CZvWj09upOsy2Y6IwDhK8bt.jpg"
+        },
+        {
+          "id": "cf-5",
+          "titulo": "Avatar",
+          "anio": 2009,
+          "descripcion": "Un mundo alienígena en guerra.",
+          "publicado": true,
+          "poster": "https://static.posters.cz/image/1300/7182.jpg"
+        },
+        {
+          "id": "cf-6",
+          "titulo": "Gravity",
+          "anio": 2013,
+          "descripcion": "Supervivencia en el espacio.",
+          "publicado": true,
+          "poster": "https://image.tmdb.org/t/p/original/kZ2nZw8D681aphje8NJi8EfbL1U.jpg"
+        },
+        {
+          "id": "cf-7",
+          "titulo": "Arrival",
+          "anio": 2016,
+          "descripcion": "Contacto con extraterrestres.",
+          "publicado": true,
+          "poster": "https://www.originalfilmart.com/cdn/shop/products/Arrival_2016_original_film_art_e823c6c1-6f00-42c5-9a4a-74fbd7ec83a8_5000x.jpg?v=1636660813"
+        },
+        {
+          "id": "cf-8",
+          "titulo": "Elysium",
+          "anio": 2013,
+          "descripcion": "Desigualdad en el futuro.",
+          "publicado": true,
+          "poster": "https://hips.hearstapps.com/es.h-cdn.co/fotoes/images/noticias-cine/trailer-y-poster-de-elysium/6397367-1-esl-ES/Trailer-y-poster-de-Elysium.jpg?resize=640:*"
+        },
+        {
+          "id": "cf-9",
+          "titulo": "Dune",
+          "anio": 2021,
+          "descripcion": "La lucha por la especia.",
+          "publicado": true,
+          "poster": "https://image.tmdb.org/t/p/w500/d5NXSklXo0qyIYkgV94XAgMIckC.jpg"
+        },
+        {
+          "id": "cf-10",
+          "titulo": "The Martian",
+          "anio": 2015,
+          "descripcion": "Un astronauta queda varado en Marte.",
+          "publicado": true,
+          "poster": "https://m.media-amazon.com/images/I/81JJQZPrjBL._AC_SL1500_.jpg"
+        },
+        {
+          "id": "cf-11",
+          "titulo": "Minority Report",
+          "anio": 2002,
+          "descripcion": "Crímenes antes de que ocurran.",
+          "publicado": true,
+          "poster": "https://m.media-amazon.com/images/I/61PmgPilfvL._AC_UF894,1000_QL80_.jpg"
+        },
+        {
+          "id": "cf-12",
+          "titulo": "Oblivion",
+          "anio": 2013,
+          "descripcion": "Un futuro postapocalíptico.",
+          "publicado": true,
+          "poster": "https://m.media-amazon.com/images/I/71PcjyqrHBL.jpg"
+        },
+        {
+          "id": "cf-13",
+          "titulo": "Ready Player One",
+          "anio": 2018,
+          "descripcion": "Un mundo virtual domina la realidad.",
+          "publicado": true,
+          "poster": "https://m.media-amazon.com/images/I/71NaQGqIhAL._AC_SL1106_.jpg"
+        },
+        {
+          "id": "cf-14",
+          "titulo": "Ex Machina",
+          "anio": 2014,
+          "descripcion": "Inteligencia artificial avanzada.",
+          "publicado": true,
+          "poster": "https://postercity.com.ar/wp-content/uploads/2021/07/Ex-Machina.jpg"
+        }
+      ]
+    }
+  ]
+}

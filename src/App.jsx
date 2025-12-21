@@ -1,12 +1,12 @@
 import { BrowserRouter } from "react-router-dom";
 import RoutesPrincipal from "./routes/RoutesPrincipal";
 
-const App = () => {
+function App() {
   return (
     <BrowserRouter>
-      <RoutesPrincipal/>
+      <RoutesPrincipal />
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;
