@@ -1,7 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { UserContext } from '../contexto/ContextoBD';
 
-export default function ListaDePeliculas() {
+export default function ListaDePeliculas({ soloFavoritos = false }) {
+
+// Prop que indica si mostrar solo películas favoritas (true) o todas (false)
 
 // iconos de bootstrap 
 const basurero = <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-trash" viewBox="0 0 16 16">
@@ -49,12 +51,15 @@ const cambiarDescripcion = (id, nuevaDescripcion) => {
 }
 
 // Creamos estado local para mantener sincronizada la tabla con los cambios del contexto
-const [lista, setLista] = useState(user);
+// Si soloFavoritos es true, filtramos para mostrar solo películas con favorito: true
+// Si soloFavoritos es false, mostramos todas las películas
+const [lista, setLista] = useState(soloFavoritos ? user.filter(peli => peli.favorito) : user);
 
-// useEffect se dispara cuando 'user' cambia, manteniendo la tabla actualizada
+// useEffect se dispara cuando 'user' o 'soloFavoritos' cambian
+// Aplicamos el filtro de favoritos si soloFavoritos está activo
 useEffect(() => {
-  setLista(user);
-}, [user]);
+  setLista(soloFavoritos ? user.filter(peli => peli.favorito) : user);
+}, [user, soloFavoritos]);
 
 // Componente separado para cada fila - facilita la reutilización y organización del código
 function  FilaDeTable({items}){
@@ -105,11 +110,13 @@ function  FilaDeTable({items}){
 }
 
   return (
-    <div className="container mt-3">
-  <h2>Lista de Peliculas</h2>          
-  <table className="table table-striped text-center">
-    <thead>
-      <tr className='bg-secondary'>
+    <>
+      {/* Título dinámico: si soloFavoritos es true, muestra "Mis Películas Favoritas", sino "Lista de Peliculas" */}
+      <h2>{soloFavoritos ? 'Mis Películas Favoritas' : 'Lista de Peliculas'}</h2>
+      <div className="container mt-3">
+        <table className="table table-striped text-center">
+          <thead>
+            <tr className='bg-secondary'>
         <th className='bg-secondary'>ID</th>
         <th className='bg-secondary'>Pelicula</th>
         <th className='bg-secondary'>Categoria</th>
@@ -125,5 +132,6 @@ function  FilaDeTable({items}){
     </tbody>
     </table>
    </div>
+    </>
   )
 }

@@ -4,27 +4,41 @@ import logo from "../assets/logotucufilms3.png";
 
 const NavBarApp = () => {
   const navigate = useNavigate();
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  
+  // Lee del localStorage si está autenticado (true/false)
+  const [estaAutenticado, setEstaAutenticado] = useState(localStorage.getItem('autenticado') === 'true');
+  const [usuario, setUsuario] = useState('');
+  const [contrasena, setContrasena] = useState('');
 
-  const handleLogin = (e) => {
+  const manejarLogin = (e) => {
     e.preventDefault();
     
-    // Validar credenciales
-    if (username === 'juliometal' && password === 'blacksabbath') {
-      setUsername('');
-      setPassword('');
+    // Validar credenciales (juliometal / blacksabbath)
+    if (usuario === 'juliometal' && contrasena === 'blacksabbath') {
+      // Si son correctas: guarda en localStorage y actualiza el estado
+      localStorage.setItem('autenticado', 'true');
+      setEstaAutenticado(true);
+      setUsuario('');
+      setContrasena('');
       
-      // Cerrar modal
+      // Cierra el modal de login
       document.querySelector('#loginModal .btn-close')?.click();
       
-      // Redirigir a admin
+      // Redirige a Admin
       setTimeout(() => navigate('/Admin'), 300);
     } else {
       alert('Credenciales incorrectas');
-      setUsername('');
-      setPassword('');
+      setUsuario('');
+      setContrasena('');
     }
+  };
+
+  const manejarLogout = () => {
+    // Elimina la autenticación del localStorage
+    localStorage.removeItem('autenticado');
+    setEstaAutenticado(false);
+    // Redirige a inicio
+    navigate('/');
   };
 
   return (
@@ -43,8 +57,30 @@ const NavBarApp = () => {
               <li className="nav-item">
                 <Link className="nav-link" to="/">Inicio</Link>
               </li>
+              {estaAutenticado && (
+                <li className="nav-item">
+                  <Link className="nav-link" to="/peliculas">Mis Películas</Link>
+                </li>
+              )}
               <li className="nav-item">
-                <button className="nav-link btn btn-link" data-bs-toggle="modal" data-bs-target="#loginModal" style={{ border: 'none', textDecoration: 'none' }}>Administración</button>
+                {estaAutenticado ? (
+                  <button 
+                    className="nav-link btn btn-link" 
+                    onClick={manejarLogout}
+                    style={{ border: 'none', textDecoration: 'none', color: '#fff' }}
+                  >
+                    Cerrar Sesión
+                  </button>
+                ) : (
+                  <button 
+                    className="nav-link btn btn-link" 
+                    data-bs-toggle="modal" 
+                    data-bs-target="#loginModal" 
+                    style={{ border: 'none', textDecoration: 'none' }}
+                  >
+                    Administración
+                  </button>
+                )}
               </li>
             </ul>
           </div>
@@ -60,14 +96,14 @@ const NavBarApp = () => {
               <button type="button" className="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <div className="modal-body">
-              <form onSubmit={handleLogin}>
+              <form onSubmit={manejarLogin}>
                 <div className="mb-3">
                   <label className="form-label">Usuario</label>
                   <input 
                     type="text" 
                     className="form-control" 
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
+                    value={usuario}
+                    onChange={(e) => setUsuario(e.target.value)}
                     required
                   />
                 </div>
@@ -76,8 +112,8 @@ const NavBarApp = () => {
                   <input 
                     type="password" 
                     className="form-control"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    value={contrasena}
+                    onChange={(e) => setContrasena(e.target.value)}
                     required
                   />
                 </div>
