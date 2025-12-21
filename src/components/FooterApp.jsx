@@ -1,16 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../assets/logoletras.png"; 
+import logo from "../assets/logoletras.png";
 
 const FooterApp = () => {
   return (
-    <footer className="py-4 bg-dark">
-      
+    <footer className="py-4 bg-secondary container-fluid">
       {/* align-items-center: Centra verticalmente los logos con el texto */}
       <div className="row text-center align-items-center">
-        
         {/* COLUMNA 1: LOGO */}
-        <div className="col bg-dark">
+        <div className="col bg-secondary">
           <Link to="/">
             <img
               src={logo}
@@ -22,7 +20,7 @@ const FooterApp = () => {
         </div>
 
         {/* COLUMNA 2: COPYRIGHT */}
-        <div className="col bg-dark p-3 text-light">
+        <div className="col bg-secondary py-3 text-light">
           <small>
             &copy; {new Date().getFullYear()} Tucu Films. <br />
             Todos los derechos reservados.
@@ -30,7 +28,7 @@ const FooterApp = () => {
         </div>
 
         {/* COLUMNA 3: REDES SOCIALES */}
-        <div className="col d-flex justify-content-center gap-3 bg-dark p-3">
+        <div className="col d-flex justify-content-center gap-3 bg-secondary py-3">
           <a href="http://" target="_blank" rel="noopener noreferrer">
             <img
               src="https://cdn-icons-png.flaticon.com/512/733/733547.png"
