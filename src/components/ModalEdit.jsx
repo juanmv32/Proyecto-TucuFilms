@@ -27,6 +27,7 @@ export default function ModalEdit() {
     setDatos(prevDatos => ({
       ...prevDatos, // Mantiene las otras propiedades
       [name]: value // Actualiza la propiedad correspondiente
+      
     }));
   };
 
@@ -37,6 +38,7 @@ export default function ModalEdit() {
     // Aquí puedes enviar los datos a una API, guardarlos, etc.
     // Opcionalmente, resetea el formulario:
     setDatos({ titulo: '', anio: '', descripcion: '', publicado: false });
+
   };
 
     
@@ -79,7 +81,7 @@ export default function ModalEdit() {
         </div>
         <div className="mb-3">
             <label htmlFor="exampleFormControlTextarea1" className="form-label text-light">Descripcion</label>
-            <textarea className="form-control" id="exampleFormControlTextarea1" rows="3" maxLength={200}style={{resize:'none'}} ></textarea>
+            <textarea className="form-control" id="exampleFormControlTextarea1" rows="3" maxLength={200}style={{resize:'none'}} name='descripcion' value={datos.descripcion} onChange={handleChange} ></textarea>
         </div>
        <div className="mb-3 form-check">
        <input type="checkbox" className="form-check-input" id="exampleCheck1"/>
