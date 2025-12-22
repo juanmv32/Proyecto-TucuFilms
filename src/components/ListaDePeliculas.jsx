@@ -99,7 +99,7 @@ function  FilaDeTable({items}){
             </td>
             {/* onChange en lugar de onClick porque es el evento correcto para checkboxes */}
             <td><input type="checkbox" checked={publicado} onChange={()=>cambiarPublicado(id)}></input></td>
-            <td className='d-flex justify-content-around'>
+            <td className='d-flex justify-content-around '>
               <span>{basurero}</span>
               {/* onClick para activar edición y cursor pointer para indicar que es clickeable */}
               <span onClick={() => setEditando(true)} style={{cursor: 'pointer'}}>{lapizNota}</span>

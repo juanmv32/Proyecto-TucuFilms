@@ -18,7 +18,7 @@ class Pelicula {
 export default function ModalEdit() {
   
   // Necesitamos 'categorias' y 'setCategorias' del contexto para poder calcular el ID y guardar
-  const { categorias, setCategorias } = useContext(UserContext);
+  const { categorias, setCategorias,agregarPelicula } = useContext(UserContext);
 
   // 2. Estado inicial
   const [datos, setDatos] = useState({
@@ -104,7 +104,7 @@ export default function ModalEdit() {
 
   return (
     <>
-      <button type="button" className="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <button type="button" className="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal" disabled>
         Nueva Pelicula
       </button>
 
