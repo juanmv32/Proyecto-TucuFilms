@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useContext, useMemo } from 'react'
 import movieData from '../../assets/data/movie.json';
-import { MovieContext } from '../../contexto/ContextoBD';
+import { ContextoBD } from '../../contexto/ContextoBD';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './Carousel.css';
 
 function Sliders() {
   // Obtenemos el contexto que contiene las categorías actualizadas desde ContextoBD
-  const contextValue = useContext(MovieContext);
+  const contextValue = useContext(ContextoBD);
   
   // Si el contexto tiene categorías las usamos, sino usamos el JSON como fallback
   // Esto permite que el slider funcione incluso si el contexto falla
