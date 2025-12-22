@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom"
 import PagesLayout from "../layout/PagesLayout"
-import HomeScreen from "../views/Homescreen"
+import HomeScreen from "../views/HomeScreen"
 import Error404Screen from "../views/Error404Screen"
 import AdminScreen from "../views/AdminScreen"
 import ListaDePeliculas from "../components/ListaDePeliculas"
