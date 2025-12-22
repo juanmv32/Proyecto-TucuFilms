@@ -215,6 +215,37 @@ export const ProveedorPeliculas = ({ children: hijos }) => {
     });
   }, []);
 
+const agregarPelicula = useCallback((nuevaPeli, idCategoriaDestino) => {
+    setCategorias((prevCategorias) => {
+      // 1. Recorremos las categorías para encontrar la correcta
+      const nuevasCategorias = prevCategorias.map((cat) => {
+        if (cat.id === idCategoriaDestino) {
+          // Si es la categoría buscada, agregamos la peli al array
+          return { ...cat, peliculas: [...cat.peliculas, nuevaPeli] };
+        }
+        return cat; // Si no es, la dejamos igual
+      });
+
+      // 2. Guardamos en LocalStorage
+      localStorage.setItem('movieData', JSON.stringify(nuevasCategorias));
+
+      return nuevasCategorias;
+    });
+  }, []);
+
+
+
+
+  return (
+    <MovieContext.Provider value={{ categorias, loading, error, user, actualizarPelicula,agregarPelicula }}>
+      {children}
+    </MovieContext.Provider>
+  );
+};
+
+// Alias opcional
+export const UserContext = MovieContext;
+export const UseProvider = MovieProvider;
   /**
    * RETURN DEL PROVIDER
    * 

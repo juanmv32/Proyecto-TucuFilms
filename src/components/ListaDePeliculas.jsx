@@ -1,4 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
+import { UserContext } from '../contexto/ContextoBD';
+import ModalEdit from './ModalEdit';
 import { ContextoBD } from '../contexto/ContextoBD';
 
 // Componente principal que muestra una tabla con todas las películas o solo las favoritas
@@ -207,9 +209,9 @@ const basurero = <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" 
            key={item.id}: ayuda a React a identificar qué filas han cambiado (requerido en listas) */
         <FilaDeTable key={item.id} items={item}/>
       ))}  
-    </tbody>
-    </table>
-   </div>
+        </tbody>
+         </table>
+        </div>     
     </>
   )
 }
