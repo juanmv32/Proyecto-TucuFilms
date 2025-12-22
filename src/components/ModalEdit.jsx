@@ -2,6 +2,7 @@ import React from 'react'
 import { UserContext } from '../contexto/ContextoBD';
 import  { use, useContext, useState } from 'react'
 
+
 export default function ModalEdit() {
    
 
@@ -9,16 +10,33 @@ export default function ModalEdit() {
 
  
 
-const [datosPelicula, setdatosPelicula] = useState({  id: "",titulo: "", anio: 0, descripcion: "", publicado: false, poster: ""});
+   // 1. Estado inicial para el objeto de 4 propiedades
+  const [datos, setDatos] = useState({
+    titulo: '',
+    anio: '',
+    descripcion: '',
+    publicado: false,
+    poster: "./src/assets/sinimagen.png"
+  
+  });
 
-  const cambiarDatos = (e) => {
-    const { name, value } = e.target;
-    setdatosPelicula({ ...datosPelicula, [name]: value }); // Actualiza el estado
+  // 2. Manejador de cambios para actualizar el estado
+  const handleChange = (e) => {
+    const { name, value } = e.target; // Obtiene el nombre y el valor del input
+    // Actualiza el estado usando la propiedad computada de ES6
+    setDatos(prevDatos => ({
+      ...prevDatos, // Mantiene las otras propiedades
+      [name]: value // Actualiza la propiedad correspondiente
+    }));
   };
 
-  const guardarDatos = (e) => {
-    ; // Previene recarga de página
-    console.log('Datos del formulario:', datosPelicula); // Aquí tienes tu objeto
+  // 3. Manejador de envío del formulario
+  const handleSubmit = (e) => {
+    e.preventDefault(); // Previene el comportamiento por defecto (recargar página)
+    console.log('Datos enviados:', datos);
+    // Aquí puedes enviar los datos a una API, guardarlos, etc.
+    // Opcionalmente, resetea el formulario:
+    setDatos({ titulo: '', anio: '', descripcion: '', publicado: false });
   };
 
     
@@ -28,14 +46,14 @@ const [datosPelicula, setdatosPelicula] = useState({  id: "",titulo: "", anio: 0
    
   return (
     <>
-   
+  
 <button type="button" className="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
   Nueva Pelicula
 </button>
 
 <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div className=" modal-dialog modal-dialog-centered">
-    <form className="modal-content bg-dark" onSubmit={guardarDatos}>
+    <form className="modal-content bg-dark" onSubmit={handleSubmit}>
       <div className="modal-header text-light">
         <h1 className="modal-title fs-5" id="exampleModalLabel">Agregar/Editar</h1>
       </div>
@@ -43,11 +61,11 @@ const [datosPelicula, setdatosPelicula] = useState({  id: "",titulo: "", anio: 0
        <div>
        <div className="mb-3">
         <label htmlFor="nombrePelicula" className="form-label text-light">Nombre</label>
-        <input type="text" className="form-control" id="nombrePelicula" name='titulo' value={datosPelicula.titulo} onChange={cambiarDatos}/>
+        <input type="text" className="form-control" id="nombrePelicula" name='titulo' value={datos.titulo} onChange={handleChange}/>
         </div>
         <div className="mb-3">
         <label htmlFor="añoPelicula" className="form-label text-light">Año</label>
-        <input type="text" className="form-control" id="añoPelicula" name='anio' value={datosPelicula.anio} onChange={cambiarDatos}/>
+        <input type="text" className="form-control" id="añoPelicula" name='anio' value={datos.anio} onChange={handleChange}/>
         </div>
          <div className="mb-3">
          <label htmlFor="exampleInputPassword1" className="form-label text-light">Categoria</label>
@@ -64,7 +82,7 @@ const [datosPelicula, setdatosPelicula] = useState({  id: "",titulo: "", anio: 0
             <textarea className="form-control" id="exampleFormControlTextarea1" rows="3" maxLength={200}style={{resize:'none'}} ></textarea>
         </div>
        <div className="mb-3 form-check">
-       <input type="checkbox" className="form-check-input" id="exampleCheck1" value={datosPelicula.publicado} onChange={cambiarDatos}/>
+       <input type="checkbox" className="form-check-input" id="exampleCheck1"/>
        <label className="form-check-label text-light" htmlFor="exampleCheck1" >Publicado</label>
        </div>
       
