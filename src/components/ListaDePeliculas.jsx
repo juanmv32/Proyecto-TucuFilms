@@ -116,7 +116,7 @@ function  FilaDeTable({items}){
         <ModalEdit/>
         </div>    
       {/* Título dinámico: si soloFavoritos es true, muestra "Mis Películas Favoritas", sino "Lista de Peliculas" */}
-      <h2>{soloFavoritos ? 'Mis Películas Favoritas' : 'Lista de Peliculas'}</h2>
+      <h2 className='text-center'>{soloFavoritos ? 'Mis Películas Favoritas' : 'Lista de Peliculas'}</h2>
       <div className="container mt-3 min-vh-100">
         <table className="table table-striped text-center">
           <thead>
